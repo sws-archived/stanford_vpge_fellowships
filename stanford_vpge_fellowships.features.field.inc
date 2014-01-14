@@ -102,7 +102,9 @@ function stanford_vpge_fellowships_field_default_fields() {
             ),
           ),
           'sort' => array(
-            'type' => 'none',
+            'direction' => 'ASC',
+            'property' => 'title',
+            'type' => 'property',
           ),
           'target_bundles' => array(
             'stanford_person' => 'stanford_person',
@@ -117,7 +119,7 @@ function stanford_vpge_fellowships_field_default_fields() {
       'bundle' => 'field_fellowship_fellows',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Start typing the name of the person who you wish to add or click on the plus button to the right of this field to create a new one.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -195,18 +197,11 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '9',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '12',
-        ),
-        'fellowship_details' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '9',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -311,32 +306,25 @@ function stanford_vpge_fellowships_field_default_fields() {
       'bundle' => 'fellowship_funding',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Choose the appropriate areas of focus.  To select more than one, hold the Ctrl or Command keyboard key on the Mac.',
+      'description' => 'Choose the appropriate areas of focus. ',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '16',
         ),
         'details' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '22',
+          'weight' => '25',
         ),
         'full' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '17',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -357,7 +345,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '14',
+        'weight' => '16',
       ),
     ),
   );
@@ -405,18 +393,11 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '5',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '5',
-        ),
-        'fellowship_details' => array(
           'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '5',
         ),
         'full' => array(
           'label' => 'inline',
@@ -516,8 +497,7 @@ function stanford_vpge_fellowships_field_default_fields() {
       'bundle' => 'fellowship_funding',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Choose the appropriate application type.  If you do not have any application types yet, 
-a site administrator can add them, and integrate them with the site architecture.',
+      'description' => 'Choose the appropriate application type.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -531,14 +511,7 @@ a site administrator can add them, and integrate them with the site architecture
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '9',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '14',
+          'weight' => '7',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -565,7 +538,7 @@ a site administrator can add them, and integrate them with the site architecture
         'active' => 1,
         'module' => 'options',
         'settings' => array(),
-        'type' => 'options_select',
+        'type' => 'options_buttons',
         'weight' => '3',
       ),
     ),
@@ -609,28 +582,21 @@ a site administrator can add them, and integrate them with the site architecture
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '13',
         ),
         'details' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '19',
+          'weight' => '13',
         ),
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '10',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -680,7 +646,7 @@ a site administrator can add them, and integrate them with the site architecture
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '12',
+        'weight' => '13',
       ),
     ),
   );
@@ -732,14 +698,7 @@ a site administrator can add them, and integrate them with the site architecture
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '16',
+          'weight' => '8',
         ),
         'full' => array(
           'label' => 'inline',
@@ -844,18 +803,11 @@ a site administrator can add them, and integrate them with the site architecture
           'weight' => '4',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '6',
-        ),
-        'fellowship_details' => array(
           'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '4',
         ),
         'full' => array(
           'label' => 'inline',
@@ -921,7 +873,7 @@ a site administrator can add them, and integrate them with the site architecture
   $fields['node-fellowship_funding-field_fellowship_eligibility'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_fellowship_eligibility',
@@ -969,14 +921,7 @@ a site administrator can add them, and integrate them with the site architecture
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '7',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '13',
+          'weight' => '6',
         ),
         'full' => array(
           'label' => 'inline',
@@ -1044,25 +989,13 @@ a site administrator can add them, and integrate them with the site architecture
             'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
-          'weight' => '15',
+          'weight' => '18',
         ),
         'details' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '21',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => TRUE,
-            'edit' => 'Edit',
-          ),
-          'type' => 'field_collection_list',
-          'weight' => '20',
+          'weight' => '16',
         ),
         'full' => array(
           'label' => 'above',
@@ -1079,7 +1012,7 @@ a site administrator can add them, and integrate them with the site architecture
       ),
       'entity_type' => 'node',
       'field_name' => 'field_fellowship_fellows',
-      'label' => 'fellowship_Fellows',
+      'label' => 'Fellowship Fellows',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -1138,26 +1071,19 @@ a site administrator can add them, and integrate them with the site architecture
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '15',
         ),
         'details' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '17',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '21',
+          'weight' => '24',
         ),
         'full' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1178,7 +1104,7 @@ a site administrator can add them, and integrate them with the site architecture
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '13',
+        'weight' => '15',
       ),
     ),
   );
@@ -1229,13 +1155,6 @@ a site administrator can add them, and integrate them with the site architecture
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '10',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '17',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1340,18 +1259,11 @@ a site administrator can add them, and integrate them with the site architecture
           'weight' => '3',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '11',
-        ),
-        'fellowship_details' => array(
           'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '10',
+          'weight' => '3',
         ),
         'full' => array(
           'label' => 'inline',
@@ -1409,6 +1321,214 @@ a site administrator can add them, and integrate them with the site architecture
         ),
         'type' => 'text_textfield',
         'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-fellowship_funding-field_fellowship_partner'.
+  $fields['node-fellowship_funding-field_fellowship_partner'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_fellowship_partner',
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'stanford_affiliated_program' => 'stanford_affiliated_program',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Start typing the associated partner then select from the auto-complete list.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '12',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '12',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 0,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '15',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_fellowship_partner',
+      'label' => 'Partner',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '18',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-fellowship_funding-field_fellowship_person'.
+  $fields['node-fellowship_funding-field_fellowship_person'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_fellowship_person',
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'stanford_person' => 'stanford_person',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Start typing the associated contact person then select from the auto-complete list.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '14',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '14',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_fellowship_person',
+      'label' => 'Contact Person',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '14',
       ),
     ),
   );
@@ -1478,16 +1598,7 @@ a site administrator can add them, and integrate them with the site architecture
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => '1',
-        ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => '18',
+          'weight' => '11',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1521,7 +1632,7 @@ a site administrator can add them, and integrate them with the site architecture
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '15',
+        'weight' => '17',
       ),
     ),
   );
@@ -1569,13 +1680,6 @@ a site administrator can add them, and integrate them with the site architecture
           'weight' => '0',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '8',
-        ),
-        'fellowship_details' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
@@ -1587,7 +1691,7 @@ a site administrator can add them, and integrate them with the site architecture
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1691,19 +1795,12 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'text_default',
           'weight' => '2',
         ),
-        'fellowship_details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '9',
-        ),
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1758,6 +1855,113 @@ a site administrator can add them, and integrate them with the site architecture
     ),
   );
 
+  // Exported field: 'node-fellowship_funding-field_s_felowship_apply_now'.
+  $fields['node-fellowship_funding-field_s_felowship_apply_now'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_s_felowship_apply_now',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'This text field displays in the sidebar on the node page. Enter text and links appropriate for applying for this fellowship or funding opportunity.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '17',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '15',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '9',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_s_felowship_apply_now',
+      'label' => 'Apply Now Block',
+      'required' => 0,
+      'settings' => array(
+        'better_formats' => array(
+          'allowed_formats' => array(
+            'content_editor_text_format' => 'content_editor_text_format',
+            'filtered_html' => 'filtered_html',
+            'full_html' => 'full_html',
+            'plain_text' => 'plain_text',
+          ),
+          'allowed_formats_toggle' => 0,
+          'default_order_toggle' => 0,
+          'default_order_wrapper' => array(
+            'formats' => array(
+              'content_editor_text_format' => array(
+                'weight' => '-10',
+              ),
+              'filtered_html' => array(
+                'weight' => '0',
+              ),
+              'full_html' => array(
+                'weight' => '1',
+              ),
+              'plain_text' => array(
+                'weight' => '10',
+              ),
+            ),
+          ),
+        ),
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '12',
+      ),
+    ),
+  );
+
   // Exported field: 'node-fellowship_funding-field_s_image_info'.
   $fields['node-fellowship_funding-field_s_image_info'] = array(
     'field_config' => array(
@@ -1797,18 +2001,6 @@ a site administrator can add them, and integrate them with the site architecture
           'weight' => '1',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => TRUE,
-            'edit' => 'Edit',
-          ),
-          'type' => 'field_collection_list',
-          'weight' => '0',
-        ),
-        'fellowship_details' => array(
           'label' => 'hidden',
           'module' => 'field_collection',
           'settings' => array(
@@ -1819,7 +2011,7 @@ a site administrator can add them, and integrate them with the site architecture
             'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
-          'weight' => '3',
+          'weight' => '1',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1832,7 +2024,7 @@ a site administrator can add them, and integrate them with the site architecture
             'view_mode' => 'stanford_3_col_header',
           ),
           'type' => 'field_collection_view',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1865,13 +2057,14 @@ a site administrator can add them, and integrate them with the site architecture
   t('Amount Awarded');
   t('Application Period');
   t('Application Type');
+  t('Apply Now Block');
   t('Area of Focus');
-  t('Choose the appropriate application type.  If you do not have any application types yet, 
-a site administrator can add them, and integrate them with the site architecture.');
-  t('Choose the appropriate areas of focus.  To select more than one, hold the Ctrl or Command keyboard key on the Mac.');
+  t('Choose the appropriate application type.');
+  t('Choose the appropriate areas of focus. ');
   t('Choose the appropriate eligibility group. ');
   t('Choose the appropriate type(s) of funding.');
   t('Contact');
+  t('Contact Person');
   t('Dollar amount, range or upper limit.');
   t('Duration');
   t('Duration of this fellowship in years');
@@ -1881,19 +2074,24 @@ a site administrator can add them, and integrate them with the site architecture
   t('Enter the acronym or short title for this Fellowship/Funding content.');
   t('Enter the year of the fellowship. example: 1999');
   t('Fellow Profile');
+  t('Fellowship Fellows');
   t('Fellowship Year');
   t('How to Apply');
   t('Image');
   t('Instructions on how to apply.');
   t('Number Awarded');
   t('Number of these fellowships awarded annually.');
+  t('Partner');
   t('Resource');
   t('Select a featured image for the fellowship/funding and add an optional caption.');
   t('Short Title');
+  t('Start typing the associated contact person then select from the auto-complete list.');
+  t('Start typing the associated partner then select from the auto-complete list.');
   t('Start typing the associated resource then select from the auto-complete list.');
+  t('Start typing the name of the person who you wish to add or click on the plus button to the right of this field to create a new one.');
   t('Tag Line');
+  t('This text field displays in the sidebar on the node page. Enter text and links appropriate for applying for this fellowship or funding opportunity.');
   t('Type of Funding');
-  t('fellowship_Fellows');
 
   return $fields;
 }

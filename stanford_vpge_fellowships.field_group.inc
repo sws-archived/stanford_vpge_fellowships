@@ -86,6 +86,7 @@ function stanford_vpge_fellowships_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_fellowship_contact',
+      1 => 'field_fellowship_person',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -113,7 +114,7 @@ function stanford_vpge_fellowships_field_group_info() {
   $field_group->mode = 'full';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Details',
+    'label' => 'At a glance',
     'weight' => '0',
     'children' => array(
       0 => 'field_fellowship_eligibility',
@@ -125,7 +126,7 @@ function stanford_vpge_fellowships_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Details',
+      'label' => 'At a glance',
       'instance_settings' => array(
         'classes' => '',
         'description' => '',
@@ -142,21 +143,21 @@ function stanford_vpge_fellowships_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_fellowship_funding|node|stanford_event|default';
-  $field_group->group_name = 'group_fellowship_funding';
+  $field_group->identifier = 'group_fellowship_partner|node|fellowship_funding|full';
+  $field_group->group_name = 'group_fellowship_partner';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'stanford_event';
-  $field_group->mode = 'default';
+  $field_group->bundle = 'fellowship_funding';
+  $field_group->mode = 'full';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'This event is affiliated with:',
-    'weight' => '9',
+    'label' => 'Partners',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_s_event_fellowship_funding',
+      0 => 'field_fellowship_partner',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'This event is affiliated with:',
+      'label' => 'Partners',
       'instance_settings' => array(
         'classes' => '',
         'description' => '',
@@ -168,7 +169,7 @@ function stanford_vpge_fellowships_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_fellowship_funding|node|stanford_event|default'] = $field_group;
+  $export['group_fellowship_partner|node|fellowship_funding|full'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

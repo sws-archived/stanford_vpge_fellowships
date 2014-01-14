@@ -46,9 +46,6 @@ function stanford_vpge_fellowships_strongarm() {
       'ical' => array(
         'custom_settings' => FALSE,
       ),
-      'fellowship_details' => array(
-        'custom_settings' => TRUE,
-      ),
       'details' => array(
         'custom_settings' => TRUE,
       ),
@@ -56,16 +53,19 @@ function stanford_vpge_fellowships_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '18',
+          'weight' => '21',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '17',
+          'weight' => '21',
         ),
         'redirect' => array(
-          'weight' => '16',
+          'weight' => '20',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '22',
         ),
       ),
       'display' => array(),
