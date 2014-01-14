@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford VPGE Fellowships feature.
+ */
+
+include_once 'stanford_vpge_fellowships.features.inc';
