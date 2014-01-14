@@ -194,6 +194,13 @@ function stanford_vpge_fellowships_field_default_fields() {
           'type' => 'text_default',
           'weight' => '9',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '12',
+        ),
         'fellowship_details' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -312,6 +319,12 @@ function stanford_vpge_fellowships_field_default_fields() {
           'type' => 'hidden',
           'weight' => '14',
         ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -386,6 +399,13 @@ function stanford_vpge_fellowships_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '5',
+        ),
+        'details' => array(
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -506,6 +526,13 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'taxonomy_term_reference_link',
           'weight' => '7',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '9',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -583,6 +610,13 @@ a site administrator can add them, and integrate them with the site architecture
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '12',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
         ),
         'fellowship_details' => array(
           'label' => 'above',
@@ -693,6 +727,13 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'text_default',
           'weight' => '8',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '4',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'text',
@@ -801,6 +842,13 @@ a site administrator can add them, and integrate them with the site architecture
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '4',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '6',
         ),
         'fellowship_details' => array(
           'label' => 'inline',
@@ -916,6 +964,13 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'taxonomy_term_reference_link',
           'weight' => '6',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '7',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -990,6 +1045,12 @@ a site administrator can add them, and integrate them with the site architecture
           ),
           'type' => 'field_collection_view',
           'weight' => '15',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
         ),
         'fellowship_details' => array(
           'label' => 'above',
@@ -1079,6 +1140,12 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'hidden',
           'weight' => '13',
         ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -1150,6 +1217,13 @@ a site administrator can add them, and integrate them with the site architecture
       'description' => 'Instructions on how to apply.',
       'display' => array(
         'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '10',
+        ),
+        'details' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
@@ -1264,6 +1338,13 @@ a site administrator can add them, and integrate them with the site architecture
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '3',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '11',
         ),
         'fellowship_details' => array(
           'label' => 'inline',
@@ -1390,6 +1471,15 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'entityreference_label',
           'weight' => '11',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '1',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'entityreference',
@@ -1477,6 +1567,13 @@ a site administrator can add them, and integrate them with the site architecture
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '0',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '8',
         ),
         'fellowship_details' => array(
           'label' => 'hidden',
@@ -1587,6 +1684,13 @@ a site administrator can add them, and integrate them with the site architecture
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
         'fellowship_details' => array(
           'label' => 'above',
           'module' => 'text',
@@ -1691,6 +1795,18 @@ a site administrator can add them, and integrate them with the site architecture
           ),
           'type' => 'field_collection_view',
           'weight' => '1',
+        ),
+        'details' => array(
+          'label' => 'above',
+          'module' => 'field_collection',
+          'settings' => array(
+            'add' => 'Add',
+            'delete' => 'Delete',
+            'description' => TRUE,
+            'edit' => 'Edit',
+          ),
+          'type' => 'field_collection_list',
+          'weight' => '0',
         ),
         'fellowship_details' => array(
           'label' => 'hidden',

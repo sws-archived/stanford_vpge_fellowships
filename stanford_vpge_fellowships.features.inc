@@ -49,3 +49,42 @@ function stanford_vpge_fellowships_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_view_mode_page_pattern_default().
+ */
+function stanford_vpge_fellowships_view_mode_page_pattern_default() {
+  $vmp_config = array();
+
+  $vmp_config[] = array(
+    0 => array(
+      'content_type' => 'fellowship_funding',
+      'view_mode' => 'default',
+      'url_pattern' => '',
+      'entity_type' => 'node',
+      'show_title' => '0',
+      'title' => '',
+    ),
+  );
+  $vmp_config[] = array(
+    0 => array(
+      'content_type' => 'fellowship_funding',
+      'view_mode' => 'details',
+      'url_pattern' => 'fellowships-funding/%/details',
+      'entity_type' => 'node',
+      'show_title' => '1',
+      'title' => '[node:title] Details',
+    ),
+  );
+  $vmp_config[] = array(
+    0 => array(
+      'content_type' => 'fellowship_funding',
+      'view_mode' => 'fellowship_details',
+      'url_pattern' => 'fellowships-funding/[node:title]/details',
+      'entity_type' => 'node',
+      'show_title' => '1',
+      'title' => '[node:title] Details',
+    ),
+  );
+  return $vmp_config;
+}

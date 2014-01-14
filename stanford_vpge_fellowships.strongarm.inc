@@ -49,6 +49,9 @@ function stanford_vpge_fellowships_strongarm() {
       'fellowship_details' => array(
         'custom_settings' => TRUE,
       ),
+      'details' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

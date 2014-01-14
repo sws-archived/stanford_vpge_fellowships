@@ -5,3 +5,27 @@
  */
 
 include_once 'stanford_vpge_fellowships.features.inc';
+
+/**
+ * [stanford_vpge_fellowships_view_mode_page_pre_entity_view description]
+ * @param  [type] $entity       [description]
+ * @param  [type] $content_type [description]
+ * @param  [type] $view_mode    [description]
+ * @param  [type] $url_pattern  [description]
+ * @return [type]               [description]
+ */
+function stanford_vpge_fellowships_view_mode_page_pre_entity_view($entities, $entity_type, $view_mode, $url_pattern) {
+
+  if ($entity_type == "node" && module_exists('context')) {
+    global $node;
+    $node = $entities[0];
+
+    $path = 'node/' . $node->nid;
+    $menu_item = menu_get_item($path);
+    menu_set_item(NULL, $menu_item);
+
+    context_node_view($node, 'full');
+  }
+
+  return $entities;
+}
