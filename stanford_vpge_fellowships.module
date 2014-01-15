@@ -4,6 +4,8 @@
  * Code for the Stanford VPGE Fellowships feature.
  */
 
+define('VPGE_FELLOWSHIPS_MENU_NAME', 'menu-fellowships-funding');
+
 include_once 'stanford_vpge_fellowships.features.inc';
 
 /**
@@ -29,3 +31,143 @@ function stanford_vpge_fellowships_view_mode_page_pre_entity_view($entities, $en
 
   return $entities;
 }
+
+/**
+ * Add all new fellowship nodes to the fellowship menu.
+ */
+function stanford_vpge_fellowships_node_insert($node) {
+  $menu = _stanford_vpge_fellowships_get_fellowship_menu();
+
+  // Ensure that the menu exists.
+  if (empty($menu)) {
+    watchdog('stanford_vpge_fellowships', 'Fellows Menu Is Missing. Could not add new fellowship node to menu.');
+    drupal_set_message(t('Error adding fellowship node to menu.'), 'error');
+    return;
+  }
+
+  // Try to get alias if pathauto is available.
+  $path = 'node/' . $node->nid;
+  if (module_exists('pathauto')) {
+    // pathauto_entity_presave();
+    pathauto_node_insert($node);
+    $path = drupal_get_path_alias($path);
+  }
+
+  $link = array();
+  $link['link_path'] = drupal_get_normal_path('node/' . $node->nid);
+  $link['link_title'] = $node->title;
+  $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+  $parent = menu_link_save($link);
+
+  // Create overview link.
+  $link = array();
+  $link['plid'] = $parent;
+  $link['link_path'] = drupal_get_normal_path('node/' . $node->nid);
+  $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+  $link['link_title'] = t("Overview");
+  $link['weight'] = -10;
+  menu_link_save($link);
+
+  // Details View Mode.
+  $link = array();
+  $link['link_path'] = $path . "/details";
+  $link['link_title'] = t("Details");
+  $link['plid'] = $parent;
+  $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+  $link['weight'] = -9;
+  menu_link_save($link);
+
+}
+
+/**
+ * Gets the fellowship menu.
+ * @return array menu information
+ */
+function _stanford_vpge_fellowships_get_fellowship_menu() {
+  $menu = menu_load(VPGE_FELLOWSHIPS_MENU_NAME);
+  return $menu;
+}
+
+
+//  ////////////////////////////////////////////////////////////////////////////
+//  CONTEXT PLUGINS //
+//  ////////////////////////////////////////////////////////////////////////////
+
+/**
+ * We want to allow users to place any type of content or link into the
+ * fellowships and funding menu. When they do that we want to maintain the
+ * fellowships context that the item belongs to. To do this we will harness
+ * the functionality of context.
+ */
+
+/**
+ * Implement `hook_context_plugins()` to define your plugins, classes, and class
+ * hierarchy.
+ * @return $plugins
+ */
+function stanford_vpge_fellowships_context_plugins() {
+  $plugins = array();
+  $plugins['context_condition_active_fellowships'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'stanford_vpge_fellowships') . '/plugins',
+      'file' => 'context_condition_active_fellowships.inc',
+      'class' => 'context_condition_active_fellowships',
+      'parent' => 'context_condition',
+    ),
+  );
+  $plugins['context_reaction_active_fellowships'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'stanford_vpge_fellowships') . '/plugins',
+      'file' => 'context_reaction_active_fellowships.inc',
+      'class' => 'context_reaction_active_fellowships',
+      'parent' => 'context_reaction',
+    ),
+  );
+  return $plugins;
+}
+
+/**
+ * Implement `hook_context_registry()` to define your conditions and/or
+ * reactions and map them to plugins.
+ * @return array
+ */
+function stanford_vpge_fellowships_context_registry() {
+  return array(
+    'conditions' => array(
+      'active_fellowships' => array(
+        'title' => t('Active Fellowships'),
+        'description' => t('By Selecting the Any Fellowship Section this context will evaluate all paths to see if the content being viewed is in the Fellowships & Funding menu tree. If it is then it will trigger the reactions. You can also assert if a path item is in a specific fellowship by selecting the name of the fellowship.'),
+        'plugin' => 'context_condition_active_fellowships',
+      ),
+    ),
+    'reactions' => array(
+      'active_fellowships' => array(
+        'title' => t('Active Fellowships'),
+        'description' => t('Active Fellowship Reactor'),
+        'plugin' => 'context_reaction_active_fellowships',
+      ),
+    ),
+  );
+}
+
+/**
+ * Execute Context active fellowship conditions
+ *
+ * Allows modules to hook into Context's hook_page_build to execute their
+ * conditions at an appropriate time before the firing of reactions.
+ */
+function stanford_vpge_fellowships_context_page_condition() {
+
+  $plugin = context_get_plugin('condition', 'active_fellowships');
+  if ($plugin) {
+    $plugin->execute();
+  }
+
+}
+
+
+
+
+
+
+

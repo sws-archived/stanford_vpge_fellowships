@@ -1,0 +1,72 @@
+<?php
+/**
+ * @file
+ * Drupal install file and functionality.
+ */
+
+/**
+ * Adds all existing fellowship nodes to the fellowships menu.
+ */
+function stanford_vpge_fellowships_update_7100($node) {
+  _stanford_vpge_fellowships_add_existing_to_menu();
+}
+
+/**
+ * Implements hook_install().
+ */
+function stanford_vpge_fellowships_install() {
+  _stanford_vpge_fellowships_add_existing_to_menu();
+}
+
+/**
+ * Finds all existing fellowship nodes and adds them to the fellowships menu.
+ */
+function _stanford_vpge_fellowships_add_existing_to_menu() {
+
+  // Get fellowship nodes.
+  $nodes_r = db_select('node', 'n')
+    ->fields('n', array('nid', 'title'))
+    ->condition('type', 'fellowship_funding')
+    ->execute();
+  $node_nids = $nodes_r->fetchAllAssoc('nid');
+
+  // Ensure the menu we want to populate is available.
+  $menu = _stanford_vpge_fellowships_get_fellowship_menu();
+
+  // If not available do not continue.
+  if (empty($menu)) {
+    watchdog('stanford_vpge_fellowships', 'Could not find menu to install fellowships into. Please manually add your fellowship nodes to the fellowship menu.');
+    return FALSE;
+  }
+
+  // We have some nodes and a menu. Bring them together at last.
+  foreach ($node_nids as $nid => $obj) {
+
+    // Default View Mode.
+    $link = array();
+    $link['link_path'] = drupal_get_normal_path('node/' . $nid);
+    $link['link_title'] = $obj->title;
+    $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+    $parent = menu_link_save($link);
+
+    // Create overview link.
+    $link = array();
+    $link['plid'] = $parent;
+    $link['link_path'] = drupal_get_normal_path('node/' . $nid);
+    $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+    $link['link_title'] = t("Overview");
+    $link['weight'] = -10;
+    menu_link_save($link);
+
+    // Details View Mode.
+    $link = array();
+    $link['link_path'] = drupal_get_path_alias('node/' . $nid) . "/details";
+    $link['link_title'] = t("Details");
+    $link['plid'] = $parent;
+    $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
+    $link['weight'] = -9;
+    menu_link_save($link);
+
+  }
+
+}
