@@ -64,4 +64,10 @@ features[views_view][] = fellowships_and_funding_manage
 features[views_view][] = fellowships_fellows
 features[views_view][] = people_fellowships
 
+; FILES
 files[] = stanford_vpge_fellowships.install
+
+; VIEWS PLUGINS
+files[] = "stanford_vpge_fellowships.views.inc"
+files[] = "plugins/views_plugin_argument_default_fellowship.inc"
+files[] = "plugins/views_plugin_argument_validate_fellowship.inc"

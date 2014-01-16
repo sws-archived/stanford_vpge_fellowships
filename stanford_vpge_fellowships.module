@@ -5,8 +5,16 @@
  */
 
 define('VPGE_FELLOWSHIPS_MENU_NAME', 'menu-fellowships-funding');
-
 include_once 'stanford_vpge_fellowships.features.inc';
+
+/**
+ * Implments hook_views_api
+ * @return array
+ */
+function stanford_subsites_views_api() {
+  return array("version" => "3.0");
+}
+
 
 /**
  * Implements hook_view_mode_page_pre_entity_view()
@@ -44,6 +52,12 @@ function stanford_vpge_fellowships_view_mode_page_post_entity_view($entity, $vie
  * modes.
  */
 function stanford_vpge_fellowships_node_insert($node) {
+
+  // Go away if not a fellowship type.
+  if ($node->type !== 'fellowship_funding') {
+    return;
+  }
+
   $menu = _stanford_vpge_fellowships_get_fellowship_menu();
 
   // Ensure that the menu exists.
@@ -87,6 +101,11 @@ function stanford_vpge_fellowships_node_insert($node) {
 
 }
 
+//  ////////////////////////////////////////////////////////////////////////////
+//  GETTERS ////////////////////////////////////////////////////////////////////
+//  ////////////////////////////////////////////////////////////////////////////
+
+
 /**
  * Gets the fellowship menu.
  * @return array menu information
@@ -95,6 +114,63 @@ function _stanford_vpge_fellowships_get_fellowship_menu() {
   $menu = menu_load(VPGE_FELLOWSHIPS_MENU_NAME);
   return $menu;
 }
+
+/**
+ * Returns the active fellowship node object or false if none.
+ * @return [object] [the active fellowship node or false]
+ */
+function _get_active_fellowship() {
+
+  // Start off with the easy one. If we are on a fellowship node return it.
+  global $node;
+  if ($node->type == "fellowship_funding") {
+    return $node;
+  }
+
+  // Next run by path.
+  $current_path = current_path();
+  $menu = _stanford_vpge_fellowships_get_fellowship_menu();
+  $menu_item = menu_get_item($current_path);
+  $menu_tree_page = menu_tree_page_data($menu['menu_name']);
+
+  // Loop through the trail and see where we are at.
+  foreach ($menu_tree_page as $index => $item) {
+    if ($item['link']['link_path'] == $current_path) {
+      // FOUND IT.
+      return node_load(str_replace('node/', '', $item['link']['link_path']));
+    }
+    if (!empty($item['below'])) {
+      $found = _stanford_vpge_fellowships_check_below_links($item['below']);
+      if ($found) {
+        return node_load(str_replace('node/', '', $item['link']['link_path']));
+      }
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Recursive loop checking.
+ * @param  [type] $items   [description]
+ * @param  [type] $context [description]
+ * @return [type]          [description]
+ */
+function _stanford_vpge_fellowships_check_below_links($items) {
+  foreach ($items as $item) {
+    if ($item['link']['link_path'] == current_path()) {
+      return $item;
+    }
+    if (!empty($item['below'])) {
+      $found = _stanford_vpge_fellowships_check_below_links($item['below']);
+      if ($found) {
+        return $found;
+      }
+    }
+  }
+  return FALSE;
+}
+
 
 
 //  ////////////////////////////////////////////////////////////////////////////
@@ -184,7 +260,9 @@ function stanford_vpge_fellowships_context_page_reaction() {
 
 }
 
-
+// /////////////////////////////////////////////////////////////////////////////
+// // END CONTEXTS /////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////
 
 
 

@@ -31,29 +31,6 @@ class context_condition_active_fellowships extends context_condition {
   }
 
   /**
-   * [options_form description]
-   * @param  [type] $context [description]
-   * @return [type]          [description]
-   */
-  function options_form($context) {
-    // $defaults = $this->fetch_from_context($context, 'options');
-    // return array(
-    //   'node_form' => array(
-    //     '#title' => t('Set on node form'),
-    //     '#type' => 'select',
-    //     '#options' => array(
-    //        CONTEXT_NODE_VIEW => t('No'),
-    //        CONTEXT_NODE_FORM => t('Yes'),
-    //        CONTEXT_NODE_FORM_ONLY => t('Only on node form')
-    //     ),
-    //     '#description' => t('Set this context on node forms'),
-    //     '#default_value' => isset($defaults['node_form']) ? $defaults['node_form'] : TRUE,
-    //   ),
-    // );
-  }
-
-
-  /**
    * Assert the context condition of a path under a fellowship in the
    * fellowship menu.
    */
