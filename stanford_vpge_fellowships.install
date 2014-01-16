@@ -8,14 +8,37 @@
  * Adds all existing fellowship nodes to the fellowships menu.
  */
 function stanford_vpge_fellowships_update_7100($node) {
-  _stanford_vpge_fellowships_add_existing_to_menu();
+  stanford_vpge_fellowships_install();
 }
 
 /**
  * Implements hook_install().
  */
 function stanford_vpge_fellowships_install() {
+  // Put all the existing items into the menu.
   _stanford_vpge_fellowships_add_existing_to_menu();
+
+  // Create the menu block to use in context for sidebar.
+  $block = array();
+  $block['title_link'] = 0;
+  $block['title'] = t('Fellowships');
+  $block['admin_title'] = t('Fellowships Funding Menu Block');
+  $block['parent'] = 'menu-fellowships-funding:0';
+  $block['parent_mlid'] = 0;
+  $block['level'] = '2';
+  $block['follow'] = 0;
+  $block['depth'] = '0';
+  $block['expanded'] = 1;
+  $block['sort'] = 0;
+  $block['menu_name'] = 'menu-fellowships-funding';
+  $block['module'] = 'menu_block';
+  $block['roles'] = array();
+
+  $form = array();
+  $form_state['values'] = $block;
+
+  module_load_include('inc', 'menu_block', 'menu_block.admin');
+  menu_block_add_block_form_submit($form, $form_state);
 }
 
 /**

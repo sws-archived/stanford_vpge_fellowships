@@ -10,6 +10,7 @@ dependencies[] = menu
 dependencies[] = stanford_image
 dependencies[] = taxonomy
 dependencies[] = view_mode_page
+dependencies[] = menu_block
 features[ctools][] = ds:ds:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
