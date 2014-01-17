@@ -10,150 +10,6 @@
 function stanford_vpge_fellowships_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'field_collection_item-field_fellowship_fellows-field_fellow_fellowship_year'.
-  $fields['field_collection_item-field_fellowship_fellows-field_fellow_fellowship_year'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_fellow_fellowship_year',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'field_fellowship_fellows',
-      'default_value' => array(
-        0 => array(
-          'value' => '2014',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => 'Enter the year of the fellowship. example: 1999',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => 1,
-        ),
-      ),
-      'entity_type' => 'field_collection_item',
-      'field_name' => 'field_fellow_fellowship_year',
-      'label' => 'Fellowship Year',
-      'required' => 1,
-      'settings' => array(
-        'max' => '3000',
-        'min' => '1891',
-        'prefix' => '',
-        'suffix' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '32',
-      ),
-    ),
-  );
-
-  // Exported field: 'field_collection_item-field_fellowship_fellows-field_fellow_profile'.
-  $fields['field_collection_item-field_fellowship_fellows-field_fellow_profile'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_fellow_profile',
-      'foreign keys' => array(
-        'node' => array(
-          'columns' => array(
-            'target_id' => 'nid',
-          ),
-          'table' => 'node',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'direction' => 'ASC',
-            'property' => 'title',
-            'type' => 'property',
-          ),
-          'target_bundles' => array(
-            'stanford_person' => 'stanford_person',
-          ),
-        ),
-        'target_type' => 'node',
-      ),
-      'translatable' => '0',
-      'type' => 'entityreference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'field_fellowship_fellows',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Start typing the name of the person who you wish to add or click on the plus button to the right of this field to create a new one.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'field_collection_item',
-      'entityconnect_unload_add' => '0',
-      'entityconnect_unload_edit' => '1',
-      'field_name' => 'field_fellow_profile',
-      'label' => 'Fellow Profile',
-      'required' => 1,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'entityreference',
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'path' => '',
-          'size' => '60',
-        ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '31',
-      ),
-    ),
-  );
-
   // Exported field: 'node-fellowship_funding-body'.
   $fields['node-fellowship_funding-body'] = array(
     'field_config' => array(
@@ -950,79 +806,6 @@ function stanford_vpge_fellowships_field_default_fields() {
         'settings' => array(),
         'type' => 'options_buttons',
         'weight' => '4',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-fellowship_funding-field_fellowship_fellows'.
-  $fields['node-fellowship_funding-field_fellowship_fellows'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_fellowship_fellows',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'field_collection',
-      'settings' => array(
-        'path' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'field_collection',
-    ),
-    'field_instance' => array(
-      'bundle' => 'fellowship_funding',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Add any number of persons and the corresponding year they were a fellow of this fellowship.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => TRUE,
-            'edit' => 'Edit',
-            'view_mode' => 'full',
-          ),
-          'type' => 'field_collection_view',
-          'weight' => '18',
-        ),
-        'details' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '16',
-        ),
-        'full' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_fellowship_fellows',
-      'label' => 'Fellowship Fellows',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'field_collection',
-        'settings' => array(),
-        'type' => 'field_collection_embed',
-        'weight' => '19',
       ),
     ),
   );
@@ -2053,7 +1836,6 @@ function stanford_vpge_fellowships_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
-  t('Add any number of persons and the corresponding year they were a fellow of this fellowship.');
   t('Amount Awarded');
   t('Application Period');
   t('Application Type');
@@ -2072,10 +1854,6 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Enter a short tag line for this fellowship/funding content.');
   t('Enter in the date(s) for this fellowship/funding opportunity (e.g., Feb/March or Feb 28).');
   t('Enter the acronym or short title for this Fellowship/Funding content.');
-  t('Enter the year of the fellowship. example: 1999');
-  t('Fellow Profile');
-  t('Fellowship Fellows');
-  t('Fellowship Year');
   t('How to Apply');
   t('Image');
   t('Instructions on how to apply.');
@@ -2088,7 +1866,6 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Start typing the associated contact person then select from the auto-complete list.');
   t('Start typing the associated partner then select from the auto-complete list.');
   t('Start typing the associated resource then select from the auto-complete list.');
-  t('Start typing the name of the person who you wish to add or click on the plus button to the right of this field to create a new one.');
   t('Tag Line');
   t('This text field displays in the sidebar on the node page. Enter text and links appropriate for applying for this fellowship or funding opportunity.');
   t('Type of Funding');
