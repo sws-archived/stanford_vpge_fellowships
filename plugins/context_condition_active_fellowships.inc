@@ -70,7 +70,7 @@ class context_condition_active_fellowships extends context_condition {
     global $node;
 
     // If path is a fellowship assert it.
-    if ($node->type == 'fellowship_funding') {
+    if (is_object($node) && $node->type == 'fellowship_funding') {
       $this->condition_met($context, 'all');
       return;
     }
