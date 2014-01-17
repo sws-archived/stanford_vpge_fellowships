@@ -106,7 +106,7 @@ function stanford_vpge_fellowships_node_insert($node) {
 
 /**
  * Create active fellowship context
- * @param   $node the fully saved and/or loaded subsite node object
+ * @param   $node the fully saved and/or loaded fellowship node object
  * @param   $args a misc array of arguments to pass in
  */
 
