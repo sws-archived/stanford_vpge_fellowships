@@ -100,7 +100,7 @@ function stanford_vpge_fellowships_node_insert($node) {
   menu_link_save($link);
 
   // Create a default context for the fellowship.
-  _create_active_fellowship_context($node);
+  _create_active_fellowship_context($node, array());
 
 }
 
@@ -315,8 +315,51 @@ function stanford_vpge_fellowships_context_page_reaction() {
 }
 
 // /////////////////////////////////////////////////////////////////////////////
-// // END CONTEXTS /////////////////////////////////////////////////////////////
+// // VIEWS QUERY ALTERS////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Implementation of hook_views_query_alter
+ * @param type $view
+ * @param type $query
+ */
+function stanford_vpge_fellowships_views_query_alter(&$view, &$query) {
+
+// $join = new views_join;
+// $join->construct('field_data_field_fellowship_short_title',
+//         'node',  // left table
+//         'nid',   // left field
+//         'entity_id',   // field
+//     );
+
+
+//   if ($view->name == 'fellowship_and_funding' && $view->current_display == "search_page") {
+
+//     // Add join to query; 'node' is the left table name
+//     $view->query->add_relationship('field_data_field_fellowship_short_title',$join,'node');
+
+//     // Add fields from table (or where clause, or whatever)
+//     $view->query->add_field('field_data_field_fellowship_short_title','field_fellowship_short_title_value');
+
+
+//   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

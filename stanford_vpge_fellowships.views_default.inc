@@ -202,6 +202,11 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_fellowship_funding_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fellowship_funding_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_fellowship_funding_type']['delta_offset'] = '0';
+  /* Field: Content: Short Title */
+  $handler->display->display_options['fields']['field_fellowship_short_title']['id'] = 'field_fellowship_short_title';
+  $handler->display->display_options['fields']['field_fellowship_short_title']['table'] = 'field_data_field_fellowship_short_title';
+  $handler->display->display_options['fields']['field_fellowship_short_title']['field'] = 'field_fellowship_short_title';
+  $handler->display->display_options['fields']['field_fellowship_short_title']['exclude'] = TRUE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -221,18 +226,18 @@ function stanford_vpge_fellowships_views_default_views() {
     'fellowship_funding' => 'fellowship_funding',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['group'] = 1;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search by title';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
@@ -242,6 +247,10 @@ function stanford_vpge_fellowships_views_default_views() {
     13 => 0,
     15 => 0,
     17 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'field_fellowship_short_title' => 'field_fellowship_short_title',
   );
   /* Filter criterion: Content: Eligibility (field_fellowship_eligibility) */
   $handler->display->display_options['filters']['field_fellowship_eligibility_tid']['id'] = 'field_fellowship_eligibility_tid';
@@ -365,18 +374,18 @@ function stanford_vpge_fellowships_views_default_views() {
     'fellowship_funding' => 'fellowship_funding',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['group'] = 1;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search by title';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
@@ -386,6 +395,10 @@ function stanford_vpge_fellowships_views_default_views() {
     13 => 0,
     15 => 0,
     17 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'field_fellowship_short_title' => 'field_fellowship_short_title',
   );
   /* Filter criterion: Content: Eligibility (field_fellowship_eligibility) */
   $handler->display->display_options['filters']['field_fellowship_eligibility_tid']['id'] = 'field_fellowship_eligibility_tid';
@@ -651,18 +664,18 @@ function stanford_vpge_fellowships_views_default_views() {
     'fellowship_funding' => 'fellowship_funding',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['group'] = 1;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search by title';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
@@ -672,6 +685,10 @@ function stanford_vpge_fellowships_views_default_views() {
     13 => 0,
     15 => 0,
     17 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'field_fellowship_short_title' => 'field_fellowship_short_title',
   );
   /* Filter criterion: Content: Eligibility (field_fellowship_eligibility) */
   $handler->display->display_options['filters']['field_fellowship_eligibility_tid']['id'] = 'field_fellowship_eligibility_tid';
@@ -762,6 +779,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['filters']['field_fellowship_funding_type_tid_1']['value'] = array(
     65 => '65',
   );
+  $handler->display->display_options['filters']['field_fellowship_funding_type_tid_1']['group'] = 1;
   $handler->display->display_options['filters']['field_fellowship_funding_type_tid_1']['type'] = 'select';
   $handler->display->display_options['filters']['field_fellowship_funding_type_tid_1']['vocabulary'] = 'funding_type';
   $handler->display->display_options['displays'] = array(
@@ -812,18 +830,18 @@ function stanford_vpge_fellowships_views_default_views() {
     'fellowship_funding' => 'fellowship_funding',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['group'] = 1;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search by title';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
@@ -833,6 +851,10 @@ function stanford_vpge_fellowships_views_default_views() {
     13 => 0,
     15 => 0,
     17 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'field_fellowship_short_title' => 'field_fellowship_short_title',
   );
   /* Filter criterion: Content: Eligibility (field_fellowship_eligibility) */
   $handler->display->display_options['filters']['field_fellowship_eligibility_tid']['id'] = 'field_fellowship_eligibility_tid';
