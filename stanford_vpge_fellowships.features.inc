@@ -7,16 +7,13 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function stanford_vpge_fellowships_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function stanford_vpge_fellowships_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -25,8 +22,8 @@ function stanford_vpge_fellowships_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function stanford_vpge_fellowships_views_api() {
-  return array("version" => "3.0");
+function stanford_vpge_fellowships_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -58,7 +55,7 @@ function stanford_vpge_fellowships_view_mode_page_pattern_default() {
       'view_mode' => 'details',
       'url_pattern' => 'fellowships-funding/%/details',
       'entity_type' => 'node',
-      'show_title' => '1',
+      'show_title' => 1,
       'title' => '[node:title] Details',
     ),
   );

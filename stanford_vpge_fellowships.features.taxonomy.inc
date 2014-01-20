@@ -13,9 +13,9 @@ function stanford_vpge_fellowships_taxonomy_default_vocabularies() {
       'name' => 'VPGE - Process',
       'machine_name' => 'application_type',
       'description' => 'Fellowship application type',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -36,9 +36,9 @@ function stanford_vpge_fellowships_taxonomy_default_vocabularies() {
       'name' => 'VPGE - Areas of Focus',
       'machine_name' => 'areas_of_focus',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -59,9 +59,9 @@ function stanford_vpge_fellowships_taxonomy_default_vocabularies() {
       'name' => 'VPGE - Fellowship Eligibility',
       'machine_name' => 'eligibility',
       'description' => 'Target Audience for Fellowships/Funding',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -82,9 +82,9 @@ function stanford_vpge_fellowships_taxonomy_default_vocabularies() {
       'name' => 'VPGE - Funding Type',
       'machine_name' => 'funding_type',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
