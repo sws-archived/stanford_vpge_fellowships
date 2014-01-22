@@ -17,6 +17,14 @@ function stanford_subsites_views_api() {
 
 
 /**
+ * Implements hook_form_alter().
+ */
+function stanford_vpge_fellowships_form_node_form_alter(&$form, &$form_state, $form_id) {
+  drupal_add_css(drupal_get_path('module', 'stanford_vpge_fellowships') . "/css/stanford_vpge_fellowships.admin.css");
+}
+
+
+/**
  * Implements hook_view_mode_page_pre_entity_view()
  *
  * Takes over the menu system and triggers context to behave with the node_type
