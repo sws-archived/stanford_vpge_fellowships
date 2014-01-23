@@ -15,15 +15,6 @@ function stanford_subsites_views_api() {
   return array("version" => "3.0");
 }
 
-
-/**
- * Implements hook_form_alter().
- */
-function stanford_vpge_fellowships_form_node_form_alter(&$form, &$form_state, $form_id) {
-  drupal_add_css(drupal_get_path('module', 'stanford_vpge_fellowships') . "/css/stanford_vpge_fellowships.admin.css");
-}
-
-
 /**
  * Implements hook_view_mode_page_pre_entity_view()
  *
@@ -83,6 +74,14 @@ function stanford_vpge_fellowships_node_insert($node) {
     $path = drupal_get_path_alias($path);
   }
 
+  // Generate overview path alias.
+  $overview_path = $path . "/overview";
+  $path_opts = array(
+    'source' => 'node/' . $node->nid,
+    'alias' => $overview_path,
+  );
+  path_save($path_opts);
+
   $link = array();
   $link['link_path'] = drupal_get_normal_path('node/' . $node->nid);
   $link['link_title'] = $node->title;
@@ -136,21 +135,6 @@ function _create_active_fellowship_context($node, $args) {
     ),
   );
 
-  // if ($theme_region) {
-  //   $context->reactions = array(
-  //     'block' => array(
-  //       'blocks' => array(
-  //         "menu_block-" . $delta => array(
-  //           'module' => "menu_block",
-  //           'delta' => $delta,
-  //           'region' => $theme_region,
-  //           'weight' => -10,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
   $context->condition_mode = 0;
   $context->table = "context";
   $context->type = "Normal";
@@ -185,7 +169,7 @@ function _get_active_fellowship() {
 
   // Start off with the easy one. If we are on a fellowship node return it.
   global $node;
-  if ($node->type == "fellowship_funding") {
+  if (isset($node->type) && $node->type == "fellowship_funding") {
     return $node;
   }
 
@@ -286,6 +270,7 @@ function stanford_vpge_fellowships_context_registry() {
         'plugin' => 'context_condition_active_fellowships',
       ),
     ),
+
     'reactions' => array(
       'active_fellowships' => array(
         'title' => t('Active Fellowships'),
@@ -321,53 +306,3 @@ function stanford_vpge_fellowships_context_page_reaction() {
   }
 
 }
-
-// /////////////////////////////////////////////////////////////////////////////
-// // VIEWS QUERY ALTERS////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////////////
-
-/**
- * Implementation of hook_views_query_alter
- * @param type $view
- * @param type $query
- */
-function stanford_vpge_fellowships_views_query_alter(&$view, &$query) {
-
-// $join = new views_join;
-// $join->construct('field_data_field_fellowship_short_title',
-//         'node',  // left table
-//         'nid',   // left field
-//         'entity_id',   // field
-//     );
-
-
-//   if ($view->name == 'fellowship_and_funding' && $view->current_display == "search_page") {
-
-//     // Add join to query; 'node' is the left table name
-//     $view->query->add_relationship('field_data_field_fellowship_short_title',$join,'node');
-
-//     // Add fields from table (or where clause, or whatever)
-//     $view->query->add_field('field_data_field_fellowship_short_title','field_fellowship_short_title_value');
-
-
-//   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

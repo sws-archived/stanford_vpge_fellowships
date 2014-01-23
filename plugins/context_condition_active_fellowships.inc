@@ -125,7 +125,7 @@ class context_condition_active_fellowships extends context_condition {
     global $node;
 
     // If path is a fellowship assert it directly.
-    if ($node->type == 'fellowship_funding') {
+    if (isset($node->type) && $node->type == 'fellowship_funding') {
       if ($nid == $node->nid) {
         $this->condition_met($context, $nid);
       }
