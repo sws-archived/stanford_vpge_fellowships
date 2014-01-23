@@ -16,11 +16,20 @@ function stanford_vpge_fellowships_update_7100($node) {
  */
 function stanford_vpge_fellowships_install() {
 
-  // Ensure that the vie modes get installed prior to trying to install the
-  // menu links as they wont resolve nor save if they dont exist.
   module_load_include('inc', 'stanford_vpge_fellowships', 'stanford_vpge_fellowships.features');
   module_load_include('inc', 'view_mode_page', 'view_mode_page.features');
-  view_mode_page_pattern_features_rebuild('stanford_vpge_fellowships');
+
+  // Ensure view_mode_page is enabled and caches are cleared so that it will
+  // install this feature properly.
+  if (!module_exists('view_mode_page')) {
+    if (!module_enable(array('view_mode_page'))) {
+      throw new Exception("Could not enable view_mode_page or module does not exist");
+    }
+    else {
+      // Module enabled clear out caches.
+      drupal_flush_all_caches();
+    }
+  }
 
   // Put all the existing items into the menu.
   _stanford_vpge_fellowships_add_existing_to_menu();
@@ -46,6 +55,36 @@ function stanford_vpge_fellowships_install() {
 
   module_load_include('inc', 'menu_block', 'menu_block.admin');
   menu_block_add_block_form_submit($form, $form_state);
+
+  // Ensure that the content type fellowships_funding has the view mode details
+  // enabled. This data is stored in strongarm/variables table.
+
+  $data = variable_get('field_bundle_settings_node__fellowship_funding', array());
+  if (!empty($data)) {
+    $data['view_modes']['details']['custom_settings'] = TRUE;
+    variable_set('field_bundle_settings_node__fellowship_funding', $data);
+  }
+
+  // Ensure that the view modes get installed prior to trying to install the
+  // menu links as they wont resolve nor save if they dont exist. As of
+  // view_mode_page 7.x-2.3 the features rebuild merge is missing fields. Take
+  // care of them ourselves.
+  // https://drupal.org/node/2180349
+
+  $items = module_invoke($module, 'view_mode_page_pattern_default');
+  foreach ($items as $item) {
+    db_merge('view_mode_page')
+      ->key(array(
+        'entity_type' => $item[0]['entity_type'],
+        'content_type' => $item[0]['content_type'],
+        'view_mode' => $item[0]['view_mode'],
+        'url_pattern' => $item[0]['url_pattern'],
+        'show_title' => $item[0]['show_title'], // missing in view_mode_page
+        'title' => $item[0]['title'], // // missing in view_mode_page
+      ))
+      ->execute();
+  }
+
 }
 
 /**
