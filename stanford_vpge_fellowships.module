@@ -72,6 +72,7 @@ function stanford_vpge_fellowships_node_insert($node) {
     // pathauto_entity_presave();
     pathauto_node_insert($node);
     $path = drupal_get_path_alias($path);
+    $node->path['pathauto'] = 0;
   }
 
   // Generate overview path alias.

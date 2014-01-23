@@ -15,13 +15,20 @@ function stanford_vpge_fellowships_update_7100($node) {
  * Implements hook_install().
  */
 function stanford_vpge_fellowships_install() {
+
+  // Ensure that the vie modes get installed prior to trying to install the
+  // menu links as they wont resolve nor save if they dont exist.
+  module_load_include('inc', 'stanford_vpge_fellowships', 'stanford_vpge_fellowships.features');
+  module_load_include('inc', 'view_mode_page', 'view_mode_page.features');
+  view_mode_page_pattern_features_rebuild('stanford_vpge_fellowships');
+
   // Put all the existing items into the menu.
   _stanford_vpge_fellowships_add_existing_to_menu();
 
   // Create the menu block to use in context for sidebar.
   $block = array();
   $block['title_link'] = 0;
-  $block['title'] = t('Fellowships');
+  $block['title'] = '';
   $block['admin_title'] = t('Fellowships Funding Menu Block');
   $block['parent'] = 'menu-fellowships-funding:0';
   $block['parent_mlid'] = 0;
@@ -56,14 +63,33 @@ function _stanford_vpge_fellowships_add_existing_to_menu() {
   // Ensure the menu we want to populate is available.
   $menu = _stanford_vpge_fellowships_get_fellowship_menu();
 
-  // If not available do not continue.
+  // If not available do not continue until it is created.
   if (empty($menu)) {
-    watchdog('stanford_vpge_fellowships', 'Could not find menu to install fellowships into. Please manually add your fellowship nodes to the fellowship menu.');
-    return FALSE;
+    module_load_include('inc', 'stanford_vpge_fellowships', 'stanford_vpge_fellowships.features.menu_custom');
+    $menus = stanford_vpge_fellowships_menu_default_menu_custom();
+    foreach ($menus as $menu) {
+      menu_save($menu);
+    }
+    drupal_flush_all_caches();
+
+    $menu = _stanford_vpge_fellowships_get_fellowship_menu();
+    if (empty($menu)) {
+      watchdog('stanford_vpge_fellowships', 'Could not find menu to install fellowships into. Please manually add your fellowship nodes to the fellowship menu.');
+      return FALSE;
+    }
   }
 
   // We have some nodes and a menu. Bring them together at last.
   foreach ($node_nids as $nid => $obj) {
+
+    // Generate overview path alias.
+    $path = $original_path_alias = drupal_get_path_alias('node/' . $nid);
+    $overview_path = $path . "/overview";
+    $path_opts = array(
+      'source' => 'node/' . $nid,
+      'alias' => $overview_path,
+    );
+    path_save($path_opts);
 
     // Default View Mode.
     $link = array();
@@ -83,7 +109,7 @@ function _stanford_vpge_fellowships_add_existing_to_menu() {
 
     // Details View Mode.
     $link = array();
-    $link['link_path'] = drupal_get_path_alias('node/' . $nid) . "/details";
+    $link['link_path'] = $original_path_alias . "/details";
     $link['link_title'] = t("Details");
     $link['plid'] = $parent;
     $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
