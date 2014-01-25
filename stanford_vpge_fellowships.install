@@ -31,9 +31,6 @@ function stanford_vpge_fellowships_install() {
     }
   }
 
-  // Put all the existing items into the menu.
-  _stanford_vpge_fellowships_add_existing_to_menu();
-
   // Create the menu block to use in context for sidebar.
   $block = array();
   $block['title_link'] = 0;
@@ -70,7 +67,7 @@ function stanford_vpge_fellowships_install() {
   // view_mode_page 7.x-2.3 the features rebuild merge is missing fields. Take
   // care of them ourselves.
   // https://drupal.org/node/2180349
-
+  $module = 'stanford_vpge_fellowships';
   $items = module_invoke($module, 'view_mode_page_pattern_default');
   foreach ($items as $item) {
     db_merge('view_mode_page')
@@ -84,6 +81,45 @@ function stanford_vpge_fellowships_install() {
       ))
       ->execute();
   }
+
+  // Create an all fellowships context and place the menu block in it.
+  $context = new stdClass();
+  $context->name = 'fellowship_funding_global';
+  $context->description = "Active Fellowship: ANY";
+  $context->tag = "Fellowships & Funding";
+  $context->conditions = array(
+    'active_fellowships' => array(
+      'values' => array(
+        'any' => 'any',
+      ),
+    ),
+  );
+
+  // Sidebar First.
+  $theme_region = "sidebar_first";
+  $delta = count(variable_get('menu_block_ids', 0));
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        "menu_block-" . $delta => array(
+          'module' => "menu_block",
+          'delta' => $delta,
+          'region' => $theme_region,
+          'weight' => -10,
+        ),
+      ),
+    ),
+  );
+
+  $context->condition_mode = 0;
+  $context->table = "context";
+  $context->type = "Normal";
+  $context->export_type = 1;
+
+  context_save($context);
+
+  // Put all the existing items into the menu.
+  _stanford_vpge_fellowships_add_existing_to_menu();
 
 }
 
