@@ -67,6 +67,7 @@ function stanford_vpge_fellowships_install() {
   // view_mode_page 7.x-2.3 the features rebuild merge is missing fields. Take
   // care of them ourselves.
   // https://drupal.org/node/2180349
+
   $module = 'stanford_vpge_fellowships';
   $items = module_invoke($module, 'view_mode_page_pattern_default');
   foreach ($items as $item) {
@@ -118,7 +119,7 @@ function stanford_vpge_fellowships_install() {
 
   context_save($context);
 
-  // Put all the existing items into the menu.
+  // Put all the existing fellowship nodes into the menu.
   _stanford_vpge_fellowships_add_existing_to_menu();
 
 }

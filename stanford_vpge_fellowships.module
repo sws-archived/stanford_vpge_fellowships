@@ -68,6 +68,7 @@ function stanford_vpge_fellowships_node_insert($node) {
 
   // Try to get alias if pathauto is available.
   $path = 'node/' . $node->nid;
+  $original_path = drupal_get_path_alias('node/' . $node->nid);
   if (module_exists('pathauto')) {
     // pathauto_entity_presave();
     pathauto_node_insert($node);
@@ -100,7 +101,7 @@ function stanford_vpge_fellowships_node_insert($node) {
 
   // Details View Mode.
   $link = array();
-  $link['link_path'] = $path . "/details";
+  $link['link_path'] = $original_path . "/details";
   $link['link_title'] = t("Details");
   $link['plid'] = $parent;
   $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
