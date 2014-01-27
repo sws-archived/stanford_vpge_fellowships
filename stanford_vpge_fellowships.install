@@ -102,11 +102,29 @@ function stanford_vpge_fellowships_install() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-28c8fb77995715152f8946a1bca686be' => array(
+          'module' => 'views',
+          'delta' => '28c8fb77995715152f8946a1bca686be',
+          'region' => 'sidebar_first',
+          'weight' => -10,
+        ),
         "menu_block-" . $delta => array(
           'module' => "menu_block",
           'delta' => $delta,
           'region' => $theme_region,
-          'weight' => -10,
+          'weight' => -9,
+        ),
+        'bean-Fellowship-Information-Links-Sid' => array(
+          'module' => 'bean',
+          'delta' => 'Fellowship-Information-Links-Sid',
+          'region' => 'sidebar_first',
+          'weight' => -7,
+        ),
+        'bean-Back-to-All-Fellowships' => array(
+          'module' => 'bean',
+          'delta' => 'Back-to-All-Fellowships',
+          'region' => 'sidebar_first',
+          'weight' => -6,
         ),
       ),
     ),
