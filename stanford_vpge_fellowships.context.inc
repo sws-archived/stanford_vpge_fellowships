@@ -29,24 +29,6 @@ function stanford_vpge_fellowships_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'ds_extras-fellowship_funding_description' => array(
-          'module' => 'ds_extras',
-          'delta' => 'fellowship_funding_description',
-          'region' => 'sidebar_first',
-          'weight' => '-71',
-        ),
-        'bean-Fellowship-Information-Links-Sid' => array(
-          'module' => 'bean',
-          'delta' => 'Fellowship-Information-Links-Sid',
-          'region' => 'sidebar_first',
-          'weight' => '-70',
-        ),
-        'bean-Back-to-All-Fellowships' => array(
-          'module' => 'bean',
-          'delta' => 'Back-to-All-Fellowships',
-          'region' => 'sidebar_first',
-          'weight' => '-69',
-        ),
         'views-stanford_events_views-block_9' => array(
           'module' => 'views',
           'delta' => 'stanford_events_views-block_9',
@@ -59,15 +41,15 @@ function stanford_vpge_fellowships_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'views-stanford_news-block_1' => array(
-          'module' => 'views',
-          'delta' => 'stanford_news-block_1',
+        'ds_extras-s_fellowship_apply_now' => array(
+          'module' => 'ds_extras',
+          'delta' => 's_fellowship_apply_now',
           'region' => 'sidebar_second',
           'weight' => '-9',
         ),
-        'views-fellowships_fellows-block' => array(
+        'views-stanford_news-block_1' => array(
           'module' => 'views',
-          'delta' => 'fellowships_fellows-block',
+          'delta' => 'stanford_news-block_1',
           'region' => 'sidebar_second',
           'weight' => '-8',
         ),
@@ -85,46 +67,18 @@ function stanford_vpge_fellowships_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'fellowships_diversity_initiatives';
-  $context->description = 'Fellowships & Funding in Diversity Initiatives area of focus';
+  $context->name = 'fellowship_funding_page_details';
+  $context->description = 'The layout for the details page of all fellowship nodes.';
   $context->tag = 'Fellowships & Funding';
   $context->conditions = array(
-    'path' => array(
+    'active_fellowships' => array(
       'values' => array(
-        'diversity-initiatives/funding-opportunities' => 'diversity-initiatives/funding-opportunities',
+        'any' => 'any',
       ),
     ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-fellowships_and_funding-block_1' => array(
-          'module' => 'views',
-          'delta' => 'fellowships_and_funding-block_1',
-          'region' => 'content',
-          'weight' => '5',
-        ),
-      ),
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Fellowships & Funding');
-  t('Fellowships & Funding in Diversity Initiatives area of focus');
-  $export['fellowships_diversity_initiatives'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'fellowships_funding';
-  $context->description = 'Blocks that show up on the Fellowships & Funding landing page';
-  $context->tag = 'Landing Pages';
-  $context->conditions = array(
     'path' => array(
       'values' => array(
-        'fellowships-funding/overview' => 'fellowships-funding/overview',
+        'fellowship*/details' => 'fellowship*/details',
       ),
     ),
   );
@@ -134,76 +88,87 @@ function stanford_vpge_fellowships_context_default_contexts() {
         'views-stanford_events_views-block_8' => array(
           'module' => 'views',
           'delta' => 'stanford_events_views-block_8',
-          'region' => 'sidebar_first',
-          'weight' => '5',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
         ),
-        'bean-Fellowships--Funding---Banner-Im' => array(
-          'module' => 'bean',
-          'delta' => 'Fellowships--Funding---Banner-Im',
-          'region' => 'content',
-          'weight' => '9',
+        'views-077f80deab4f169b24400598d5857274' => array(
+          'module' => 'views',
+          'delta' => '077f80deab4f169b24400598d5857274',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
         ),
-        'bean-Fellowships--Funding---How-to-Fi' => array(
-          'module' => 'bean',
-          'delta' => 'Fellowships--Funding---How-to-Fi',
-          'region' => 'content_row3',
-          'weight' => '-7',
-        ),
-        'bean-Fellowships--Funding---Funding-R' => array(
-          'module' => 'bean',
-          'delta' => 'Fellowships--Funding---Funding-R',
-          'region' => 'content_row3',
-          'weight' => '-6',
-        ),
-        'bean-Fellowships--Funding---Major-Fel' => array(
-          'module' => 'bean',
-          'delta' => 'Fellowships--Funding---Major-Fel',
-          'region' => 'content_row3',
-          'weight' => '-5',
+        'views-d5e79122ee6ab0a12f8202567ffb3161' => array(
+          'module' => 'views',
+          'delta' => 'd5e79122ee6ab0a12f8202567ffb3161',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
         ),
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Blocks that show up on the Fellowships & Funding landing page');
-  t('Landing Pages');
-  $export['fellowships_funding'] = $context;
+  t('Fellowships & Funding');
+  t('The layout for the details page of all fellowship nodes.');
+  $export['fellowship_funding_page_details'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'fellowships_interdisciplinary_learning';
-  $context->description = 'Fellowships & Funding in Interdisciplinary Learning area of focus';
+  $context->name = 'fellowship_funding_page_overview';
+  $context->description = 'The layout for the overview page of all fellowship nodes.';
   $context->tag = 'Fellowships & Funding';
   $context->conditions = array(
+    'active_fellowships' => array(
+      'values' => array(
+        'any' => 'any',
+      ),
+    ),
     'path' => array(
       'values' => array(
-        'interdisciplinary-learning/funding' => 'interdisciplinary-learning/funding',
+        '*/overview' => '*/overview',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-fellowships_and_funding-block_2' => array(
+        'ds_extras-fellowship_about_fellowship' => array(
+          'module' => 'ds_extras',
+          'delta' => 'fellowship_about_fellowship',
+          'region' => 'content_row2',
+          'weight' => '-10',
+        ),
+        'ds_extras-s_fellowship_apply_now' => array(
+          'module' => 'ds_extras',
+          'delta' => 's_fellowship_apply_now',
+          'region' => 'content_row2',
+          'weight' => '-9',
+        ),
+        'views-f73ff55b085ea49217d347de6630cd5a' => array(
           'module' => 'views',
-          'delta' => 'fellowships_and_funding-block_2',
-          'region' => 'content',
-          'weight' => '5',
+          'delta' => 'f73ff55b085ea49217d347de6630cd5a',
+          'region' => 'content_bottom',
+          'weight' => '-83',
+        ),
+        'views-stanford_events_views-block_9' => array(
+          'module' => 'views',
+          'delta' => 'stanford_events_views-block_9',
+          'region' => 'content_bottom',
+          'weight' => '-82',
         ),
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Fellowships & Funding');
-  t('Fellowships & Funding in Interdisciplinary Learning area of focus');
-  $export['fellowships_interdisciplinary_learning'] = $context;
+  t('The layout for the overview page of all fellowship nodes.');
+  $export['fellowship_funding_page_overview'] = $context;
 
   return $export;
 }

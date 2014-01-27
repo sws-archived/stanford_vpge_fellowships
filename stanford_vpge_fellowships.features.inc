@@ -9,6 +9,10 @@
  */
 function stanford_vpge_fellowships_ctools_plugin_api() {
   list($module, $api) = func_get_args();
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
+  list($module, $api) = func_get_args();
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
@@ -60,6 +64,16 @@ function stanford_vpge_fellowships_view_mode_page_pattern_default() {
       'entity_type' => 'node',
       'show_title' => '1',
       'title' => '[node:title] Details',
+    ),
+  );
+  $vmp_config[] = array(
+    0 => array(
+      'content_type' => 'fellowship_funding',
+      'view_mode' => 'full',
+      'url_pattern' => '',
+      'entity_type' => 'node',
+      'show_title' => '0',
+      'title' => '',
     ),
   );
   return $vmp_config;

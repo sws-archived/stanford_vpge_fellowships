@@ -57,14 +57,13 @@ function stanford_vpge_fellowships_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '9',
+          'weight' => '2',
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '10',
+          'type' => 'hidden',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -119,7 +118,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '10',
+        'weight' => '13',
       ),
     ),
   );
@@ -174,13 +173,13 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '25',
+          'weight' => '21',
         ),
         'full' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '17',
+          'weight' => '21',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -201,7 +200,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '16',
+        'weight' => '5',
       ),
     ),
   );
@@ -253,13 +252,12 @@ function stanford_vpge_fellowships_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '26',
         ),
         'full' => array(
           'label' => 'inline',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'hidden',
           'weight' => '7',
         ),
         'teaser' => array(
@@ -310,7 +308,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '6',
       ),
     ),
   );
@@ -363,17 +361,16 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '7',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '7',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_plain',
+          'weight' => '21',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -395,7 +392,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
+        'weight' => '1',
       ),
     ),
   );
@@ -441,17 +438,16 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '13',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '13',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => '6',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -502,7 +498,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '13',
+        'weight' => '16',
       ),
     ),
   );
@@ -550,17 +546,16 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '8',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '8',
-        ),
-        'full' => array(
           'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => '23',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '3',
         ),
         'teaser' => array(
@@ -611,7 +606,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '3',
       ),
     ),
   );
@@ -663,13 +658,12 @@ function stanford_vpge_fellowships_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '25',
         ),
         'full' => array(
           'label' => 'inline',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'hidden',
           'weight' => '6',
         ),
         'teaser' => array(
@@ -720,7 +714,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );
@@ -773,17 +767,16 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '6',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '6',
-        ),
-        'full' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_plain',
+          'weight' => '22',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '2',
         ),
         'teaser' => array(
@@ -805,7 +798,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '4',
+        'weight' => '2',
       ),
     ),
   );
@@ -860,13 +853,13 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '24',
+          'weight' => '20',
         ),
         'full' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '22',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -887,7 +880,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '15',
+        'weight' => '6',
       ),
     ),
   );
@@ -933,17 +926,16 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '10',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '10',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => '18',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '9',
         ),
         'teaser' => array(
@@ -994,7 +986,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '11',
+        'weight' => '14',
       ),
     ),
   );
@@ -1046,13 +1038,12 @@ function stanford_vpge_fellowships_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '24',
         ),
         'full' => array(
           'label' => 'inline',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'hidden',
           'weight' => '5',
         ),
         'teaser' => array(
@@ -1103,7 +1094,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '4',
       ),
     ),
   );
@@ -1167,21 +1158,18 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '12',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => '12',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
-            'link' => 0,
+            'link' => 1,
           ),
           'type' => 'entityreference_label',
+          'weight' => '20',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '15',
         ),
         'teaser' => array(
@@ -1271,21 +1259,18 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '14',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => '14',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
             'link' => 1,
           ),
           'type' => 'entityreference_label',
+          'weight' => '5',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '0',
         ),
         'teaser' => array(
@@ -1311,7 +1296,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '14',
+        'weight' => '15',
       ),
     ),
   );
@@ -1375,21 +1360,18 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '11',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => '11',
-        ),
-        'full' => array(
           'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
             'link' => 1,
           ),
           'type' => 'entityreference_label',
+          'weight' => '19',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '11',
         ),
         'teaser' => array(
@@ -1464,17 +1446,15 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'details' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '0',
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1573,17 +1553,15 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'details' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'hidden',
+          'weight' => '18',
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '8',
+          'type' => 'hidden',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1638,6 +1616,366 @@ function stanford_vpge_fellowships_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-fellowship_funding-field_s_fellowship_about'.
+  $fields['node-fellowship_funding-field_s_fellowship_about'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_s_fellowship_about',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Please provide a short blurb about this fellowship.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 20,
+        ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '19',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_s_fellowship_about',
+      'label' => 'About Fellowship',
+      'required' => 1,
+      'settings' => array(
+        'better_formats' => array(
+          'allowed_formats' => array(
+            'content_editor_text_format' => 'content_editor_text_format',
+            'filtered_html' => 'filtered_html',
+            'full_html' => 'full_html',
+            'plain_text' => 'plain_text',
+          ),
+          'allowed_formats_toggle' => 0,
+          'default_order_toggle' => 0,
+          'default_order_wrapper' => array(
+            'formats' => array(
+              'content_editor_text_format' => array(
+                'weight' => '-10',
+              ),
+              'filtered_html' => array(
+                'weight' => '0',
+              ),
+              'full_html' => array(
+                'weight' => '1',
+              ),
+              'plain_text' => array(
+                'weight' => '10',
+              ),
+            ),
+          ),
+        ),
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '14',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-fellowship_funding-field_s_fellowship_image'.
+  $fields['node-fellowship_funding-field_s_fellowship_image'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_s_fellowship_image',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'deleted' => '0',
+      'description' => 'Select a featured image for the fellowship/funding. ',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => 18,
+        ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '9-col-banner',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_s_fellowship_image',
+      'label' => 'Image',
+      'required' => 1,
+      'settings' => array(
+        'alt_field' => 1,
+        'default_image' => 0,
+        'file_directory' => 'fellowships',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'insert' => 0,
+          'insert_absolute' => 0,
+          'insert_class' => '',
+          'insert_default' => 'auto',
+          'insert_styles' => array(
+            'auto' => 'auto',
+            'icon_link' => 0,
+            'image' => 0,
+            'image_12-col-banner' => 0,
+            'image_3-col-header' => 0,
+            'image_3-col-well-header' => 0,
+            'image_3-col-well-profile' => 0,
+            'image_4-col-header' => 0,
+            'image_6-col-banner' => 0,
+            'image_6-col-banner-short' => 0,
+            'image_6-col-banner-tall' => 0,
+            'image_6-col-header' => 0,
+            'image_6-col-header-short' => 0,
+            'image_8-col-banner' => 0,
+            'image_8-col-banner-short' => 0,
+            'image_8-col-banner-tall' => 0,
+            'image_9-col-banner' => 0,
+            'image_9-col-banner-short' => 0,
+            'image_icon' => 0,
+            'image_icon-square' => 0,
+            'image_large' => 0,
+            'image_large-landscape' => 0,
+            'image_large-landscape-scaled' => 0,
+            'image_large-profile' => 0,
+            'image_large-profile-scaled' => 0,
+            'image_large-scaled' => 0,
+            'image_large-square' => 0,
+            'image_med-icon' => 0,
+            'image_med-landscape' => 0,
+            'image_med-landscape-scaled' => 0,
+            'image_med-profile' => 0,
+            'image_med-profile-scaled' => 0,
+            'image_med-square' => 0,
+            'image_medium' => 0,
+            'image_medlg-profile' => 0,
+            'image_page-width' => 0,
+            'image_sm-landscape' => 0,
+            'image_sm-profile' => 0,
+            'image_sm-square' => 0,
+            'image_thmb-landscape' => 0,
+            'image_thmb-profile' => 0,
+            'image_thmb-square' => 0,
+            'image_thumbnail' => 0,
+            'image_xlarge-landscape' => 0,
+            'image_xs-landscape' => 0,
+            'link' => 0,
+          ),
+          'insert_width' => '',
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-fellowship_funding-field_s_fellowship_quote'.
+  $fields['node-fellowship_funding-field_s_fellowship_quote'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_s_fellowship_quote',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'fellowship_funding',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'An optional quote block that will show up in the right column.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 19,
+        ),
+        'details' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_s_fellowship_quote',
+      'label' => 'Quote',
+      'required' => 0,
+      'settings' => array(
+        'better_formats' => array(
+          'allowed_formats' => array(
+            'content_editor_text_format' => 'content_editor_text_format',
+            'filtered_html' => 'filtered_html',
+            'full_html' => 'full_html',
+            'plain_text' => 'plain_text',
+          ),
+          'allowed_formats_toggle' => 0,
+          'default_order_toggle' => 0,
+          'default_order_wrapper' => array(
+            'formats' => array(
+              'content_editor_text_format' => array(
+                'weight' => '-10',
+              ),
+              'filtered_html' => array(
+                'weight' => '0',
+              ),
+              'full_html' => array(
+                'weight' => '1',
+              ),
+              'plain_text' => array(
+                'weight' => '10',
+              ),
+            ),
+          ),
+        ),
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '19',
+      ),
+    ),
+  );
+
   // Exported field: 'node-fellowship_funding-field_s_felowship_apply_now'.
   $fields['node-fellowship_funding-field_s_felowship_apply_now'] = array(
     'field_config' => array(
@@ -1679,18 +2017,17 @@ function stanford_vpge_fellowships_field_default_fields() {
           'weight' => '17',
         ),
         'details' => array(
-          'label' => 'above',
-          'module' => 'text',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '15',
+          'type' => 'hidden',
+          'weight' => '19',
         ),
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '9',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1740,7 +2077,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '12',
+        'weight' => '4',
       ),
     ),
   );
@@ -1785,29 +2122,15 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'details' => array(
           'label' => 'hidden',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => TRUE,
-            'edit' => 'Edit',
-            'view_mode' => 'full',
-          ),
-          'type' => 'field_collection_view',
-          'weight' => '1',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => '',
-            'delete' => '',
-            'description' => 0,
-            'edit' => '',
-            'view_mode' => 'stanford_3_col_header',
-          ),
-          'type' => 'field_collection_view',
-          'weight' => '7',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1828,7 +2151,7 @@ function stanford_vpge_fellowships_field_default_fields() {
         'module' => 'field_collection',
         'settings' => array(),
         'type' => 'field_collection_embed',
-        'weight' => '9',
+        'weight' => '13',
       ),
     ),
   );
@@ -1836,7 +2159,9 @@ function stanford_vpge_fellowships_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
+  t('About Fellowship');
   t('Amount Awarded');
+  t('An optional quote block that will show up in the right column.');
   t('Application Period');
   t('Application Type');
   t('Apply Now Block');
@@ -1860,8 +2185,11 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Number Awarded');
   t('Number of these fellowships awarded annually.');
   t('Partner');
+  t('Please provide a short blurb about this fellowship.');
+  t('Quote');
   t('Resource');
   t('Select a featured image for the fellowship/funding and add an optional caption.');
+  t('Select a featured image for the fellowship/funding. ');
   t('Short Title');
   t('Start typing the associated contact person then select from the auto-complete list.');
   t('Start typing the associated partner then select from the auto-complete list.');
