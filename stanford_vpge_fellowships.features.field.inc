@@ -179,7 +179,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '21',
+          'weight' => '20',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -859,7 +859,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '22',
+          'weight' => '21',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1454,7 +1454,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '3',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1921,7 +1921,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '20',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
