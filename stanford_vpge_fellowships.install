@@ -34,7 +34,7 @@ function stanford_vpge_fellowships_install() {
   // Create the menu block to use in context for sidebar.
   $block = array();
   $block['title_link'] = 0;
-  $block['title'] = '';
+  $block['title'] = '<none>';
   $block['admin_title'] = t('Fellowships Funding Menu Block');
   $block['parent'] = 'menu-fellowships-funding:0';
   $block['parent_mlid'] = 0;
