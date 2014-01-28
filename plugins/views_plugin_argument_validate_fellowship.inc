@@ -35,14 +35,12 @@ class views_plugin_argument_validate_fellowship extends views_plugin_argument_va
     $handler = &$this->argument;
     $subsite = _get_active_fellowship();
 
-    ob_start();
     if(isset($fellowship->nid)) {
       $result = $fellowship->nid;
     }
     else {
       $result = 0;
     }
-    ob_end_clean();
     return $result;
   }
 }
