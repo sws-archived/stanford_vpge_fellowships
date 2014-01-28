@@ -140,7 +140,36 @@ function stanford_vpge_fellowships_install() {
   // Put all the existing fellowship nodes into the menu.
   _stanford_vpge_fellowships_add_existing_to_menu();
 
+  // Remove any existing ds_layouts from the DB as they have been put into
+  // the feature and should be maintained through the feature. Features revert
+  // does not remove them from database.
+  // _stanford_vpge_fellowships_remove_ds_layout_settings_from_db();
+
 }
+
+/**
+ * Removes any saved into db layouts so that they run off the
+ * features settings and not the DB. Features revert is not removing
+ * the settings out of the DB.
+ *
+ * @todo Look into why features revert does not actually revert the DS field
+ * block settings. Missing fellowship_about_fellowship field block on fellowship
+ * full page view
+ */
+function _stanford_vpge_fellowships_remove_ds_layout_settings_from_db() {
+  module_load_include('inc', 'stanford_vpge_fellowships', 'stanford_vpge_fellowships.ds');
+  $ds_layouts = stanford_vpge_fellowships_ds_layout_settings_info();
+
+  foreach ($ds_layouts as $layout) {
+    db_delete('ds_layout_settings')
+    ->condition('id', $layout->id)
+    ->condition('entity_type', 'node')
+    ->condition('bundle', 'fellowship_funding')
+    ->execute();
+  }
+
+}
+
 
 /**
  * Finds all existing fellowship nodes and adds them to the fellowships menu.
