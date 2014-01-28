@@ -76,6 +76,11 @@ function stanford_vpge_fellowships_install() {
         'entity_type' => $item[0]['entity_type'],
         'content_type' => $item[0]['content_type'],
         'view_mode' => $item[0]['view_mode'],
+      ))
+      ->fields(array(
+        'entity_type' => $item[0]['entity_type'],
+        'content_type' => $item[0]['content_type'],
+        'view_mode' => $item[0]['view_mode'],
         'url_pattern' => $item[0]['url_pattern'],
         'show_title' => $item[0]['show_title'], // missing in view_mode_page
         'title' => $item[0]['title'], // // missing in view_mode_page

@@ -643,7 +643,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p> 
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p>
 ';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -804,7 +804,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p> 
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p>
 <p> <a class="more-link" href="https://sites.stanford.edu/vpge/fellowships-funding/search">Search Fellowships and Funding Opportunities</a> </p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2104,6 +2104,18 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_s_fellowship_quote']['label'] = '';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Quote Block';
+
+  /* Display: About Fellowship Block */
+  $handler = $view->new_display('block', 'About Fellowship Block', 'fellowship_about_fellowship_block');
+  $handler->display->display_options['display_description'] = 'About Fellowship Block';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: About Fellowship */
+  $handler->display->display_options['fields']['field_s_fellowship_about']['id'] = 'field_s_fellowship_about';
+  $handler->display->display_options['fields']['field_s_fellowship_about']['table'] = 'field_data_field_s_fellowship_about';
+  $handler->display->display_options['fields']['field_s_fellowship_about']['field'] = 'field_s_fellowship_about';
+  $handler->display->display_options['fields']['field_s_fellowship_about']['label'] = '';
+  $handler->display->display_options['fields']['field_s_fellowship_about']['element_label_colon'] = FALSE;
+  $handler->display->display_options['block_description'] = 'About Fellowship Block';
   $export['fellowships_funding_blocks'] = $view;
 
   return $export;
