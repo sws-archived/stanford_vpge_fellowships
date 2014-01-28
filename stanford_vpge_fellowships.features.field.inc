@@ -2141,7 +2141,7 @@ function stanford_vpge_fellowships_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_s_image_info',
-      'label' => 'Image',
+      'label' => 'Banner',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -2180,7 +2180,7 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Enter in the date(s) for this fellowship/funding opportunity (e.g., Feb/March or Feb 28).');
   t('Enter the acronym or short title for this Fellowship/Funding content.');
   t('How to Apply');
-  t('Image');
+  t('Banner');
   t('Instructions on how to apply.');
   t('Number Awarded');
   t('Number of these fellowships awarded annually.');
