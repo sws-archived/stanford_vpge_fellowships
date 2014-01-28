@@ -60,11 +60,7 @@ class context_condition_active_fellowships extends context_condition {
     // Some info.
     $menu = _stanford_vpge_fellowships_get_fellowship_menu();
     $current_path = current_path();
-//    $current_path_alias = drupal_lookup_path('alias', $current_path);
     $menu_item = menu_get_item($current_path);
-//    $menu_tree = menu_tree_all_data($menu['menu_name']);
-//    // And add the active trail data back to the full tree.
-//    menu_tree_add_active_path($menu_tree);
     $menu_tree_page = menu_tree_page_data($menu['menu_name']);
 
     global $node;
@@ -75,34 +71,37 @@ class context_condition_active_fellowships extends context_condition {
       return;
     }
 
-
     // Loop through the trail and see where we are at.
     foreach ($menu_tree_page as $index => $item) {
 
-       if ($item['link']['link_path'] == $current_path) {
-         $this->condition_met($context, 'all');
-          break;
-       }
+      if ($item['link']['link_path'] == $current_path) {
+        $this->condition_met($context, 'all');
+        break;
+      }
 
-       if (!empty($item['below'])) {
-         $this->check_below_links($item['below'], $context);
-       }
-
+      if (!empty($item['below'])) {
+        $this->check_below_links($item['below'], $context);
+      }
 
     }
 
   }
 
+  /**
+   * A recursive function that looks down a menu tree for the current path.
+   * @param  [array] $items   [Menu Items]
+   * @param  [?] $context [The context]
+   */
   public function check_below_links($items, $context) {
-      foreach ($items as $item) {
-          if ($item['link']['link_path'] == current_path()) {
-              $this->condition_met($context, 'all');
-              break;
-          }
-          if (!empty($item['below'])) {
-              $this->check_below_links($item['below'], $context);
-          }
+    foreach ($items as $item) {
+      if ($item['link']['link_path'] == current_path()) {
+        $this->condition_met($context, 'all');
+        break;
       }
+      if (!empty($item['below'])) {
+        $this->check_below_links($item['below'], $context);
+      }
+    }
   }
 
   /**
