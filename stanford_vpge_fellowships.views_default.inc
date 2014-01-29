@@ -2031,7 +2031,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_fellowship_short_title']['field'] = 'field_fellowship_short_title';
   $handler->display->display_options['fields']['field_fellowship_short_title']['label'] = '';
   $handler->display->display_options['fields']['field_fellowship_short_title']['element_label_colon'] = FALSE;
-  /* Field: Content: Image */
+  /* Field: Content: Branding Image */
   $handler->display->display_options['fields']['field_s_fellowship_image']['id'] = 'field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['table'] = 'field_data_field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['field'] = 'field_s_fellowship_image';
@@ -2135,7 +2135,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['display_description'] = 'An optional block that shows the quote field contents.';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Quote */
+  /* Field: Content: Quote Block */
   $handler->display->display_options['fields']['field_s_fellowship_quote']['id'] = 'field_s_fellowship_quote';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['table'] = 'field_data_field_s_fellowship_quote';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['field'] = 'field_s_fellowship_quote';
@@ -2168,7 +2168,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'fellowship_funding' => 'fellowship_funding',
   );
-  /* Filter criterion: Content: Quote (field_s_fellowship_quote) */
+  /* Filter criterion: Content: Quote Block (field_s_fellowship_quote) */
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['id'] = 'field_s_fellowship_quote_value';
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['table'] = 'field_data_field_s_fellowship_quote';
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['field'] = 'field_s_fellowship_quote_value';

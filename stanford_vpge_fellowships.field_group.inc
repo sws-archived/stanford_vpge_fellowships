@@ -137,6 +137,35 @@ function stanford_vpge_fellowships_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_fellowship_configuration|node|fellowship_funding|form';
+  $field_group->group_name = 'group_fellowship_configuration';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'fellowship_funding';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Additional Information',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_fellowship_funding_type',
+      1 => 'field_area_of_focus',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Additional Information',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => '',
+        'description' => 'Additional information and configuration for this fellowship.',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $export['group_fellowship_configuration|node|fellowship_funding|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_fellowship_contact|node|fellowship_funding|details';
   $field_group->group_name = 'group_fellowship_contact';
   $field_group->entity_type = 'node';
@@ -439,11 +468,9 @@ function stanford_vpge_fellowships_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_fellowship_short_title',
-      1 => 'field_fellowship_funding_type',
-      2 => 'field_area_of_focus',
-      3 => 'field_fellowship_tag_line',
-      4 => 'field_s_felowship_apply_now',
-      5 => 'field_s_fellowship_image',
+      1 => 'field_fellowship_tag_line',
+      2 => 'field_s_felowship_apply_now',
+      3 => 'field_s_fellowship_image',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -451,7 +478,7 @@ function stanford_vpge_fellowships_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => '',
+        'description' => 'Fields and information that appears on all pages within the fellowship section.',
       ),
       'formatter' => 'collapsed',
     ),
@@ -469,7 +496,7 @@ function stanford_vpge_fellowships_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Details Page',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'body',
       1 => 'field_fellowship_how_to_apply',
@@ -486,7 +513,7 @@ function stanford_vpge_fellowships_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => '',
+        'description' => 'Fields and information specifically shown on the details page.',
       ),
       'formatter' => 'collapsed',
     ),
@@ -537,7 +564,7 @@ function stanford_vpge_fellowships_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Overview Page',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_s_image_info',
       1 => 'field_s_fellowship_about',
@@ -548,7 +575,7 @@ function stanford_vpge_fellowships_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => '',
+        'description' => 'Fields and information specifically shown on the overview page.',
       ),
       'formatter' => 'collapsed',
     ),

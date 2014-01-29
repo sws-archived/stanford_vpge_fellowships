@@ -51,6 +51,7 @@ features[field_group][] = group_fellowship_about|node|fellowship_funding|details
 features[field_group][] = group_fellowship_about|node|fellowship_funding|full
 features[field_group][] = group_fellowship_apply|node|fellowship_funding|details
 features[field_group][] = group_fellowship_apply|node|fellowship_funding|full
+features[field_group][] = group_fellowship_configuration|node|fellowship_funding|form
 features[field_group][] = group_fellowship_contact|node|fellowship_funding|details
 features[field_group][] = group_fellowship_contact|node|fellowship_funding|full
 features[field_group][] = group_fellowship_details|node|fellowship_funding|details
