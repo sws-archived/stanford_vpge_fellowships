@@ -62,13 +62,14 @@ function drush_stanford_vpge_fellowships_move_image_from_field_collection_field(
 
     // Simply move it to the fellowship field node.
     $fellowship->field_s_fellowship_image = $fc->field_s_image_image;
-    $fellowship->path['alias'] = drupal_get_path_alias('node/' . $fellowship->nid);
-    $fellowship->path['pathauto'] = 0;
+//    $fellowship->path['alias'] = drupal_get_path_alias('node/' . $fellowship->nid);
+//    $current_alias = drupal_get_path_alias('node/' . $fellowship->nid);
+    $fellowship->path['pathauto'] = FALSE;
     node_save($fellowship);
 
-    // Remove image from field collection
+    // Remove image from field collection.
     unset($fc->field_s_image_image[LANGUAGE_NONE]);
-    $fc->save();
+    $fc->save(TRUE);
 
     drush_log('Fixed: ' . $fellowship->title, 'ok');
   }
