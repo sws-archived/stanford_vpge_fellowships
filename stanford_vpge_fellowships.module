@@ -69,23 +69,25 @@ function stanford_vpge_fellowships_node_insert($node) {
   // Try to get alias if pathauto is available.
   $path = 'node/' . $node->nid;
   $original_path = drupal_get_path_alias('node/' . $node->nid);
-  if (module_exists('pathauto')) {
-    // pathauto_entity_presave();
+  if ($original_path == $path && module_exists('pathauto')) {
     pathauto_node_insert($node);
     $path = drupal_get_path_alias($path);
     $node->path['pathauto'] = 0;
   }
 
   // Generate overview path alias.
+  $nid = $node->nid;
+  $path = $original_path_alias = drupal_get_path_alias('node/' . $nid);
   $overview_path = $path . "/overview";
   $path_opts = array(
-    'source' => 'node/' . $node->nid,
+    'source' => 'node/' . $nid,
     'alias' => $overview_path,
   );
   path_save($path_opts);
 
+  // Default View Mode.
   $link = array();
-  $link['link_path'] = drupal_get_normal_path('node/' . $node->nid);
+  $link['link_path'] = drupal_get_normal_path('node/' . $nid);
   $link['link_title'] = $node->title;
   $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
   $parent = menu_link_save($link);
@@ -93,7 +95,7 @@ function stanford_vpge_fellowships_node_insert($node) {
   // Create overview link.
   $link = array();
   $link['plid'] = $parent;
-  $link['link_path'] = drupal_get_normal_path('node/' . $node->nid);
+  $link['link_path'] = drupal_get_normal_path('node/' . $nid);
   $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;
   $link['link_title'] = t("Overview");
   $link['weight'] = -10;
@@ -101,7 +103,7 @@ function stanford_vpge_fellowships_node_insert($node) {
 
   // Details View Mode.
   $link = array();
-  $link['link_path'] = $original_path . "/details";
+  $link['link_path'] = $original_path_alias . "/details";
   $link['link_title'] = t("Details");
   $link['plid'] = $parent;
   $link['menu_name'] = VPGE_FELLOWSHIPS_MENU_NAME;

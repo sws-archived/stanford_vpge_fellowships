@@ -158,7 +158,7 @@ function stanford_vpge_fellowships_field_group_info() {
         'classes' => '',
         'description' => 'Additional information and configuration for this fellowship.',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'collapsed',
     ),
   );
   $export['group_fellowship_configuration|node|fellowship_funding|form'] = $field_group;
