@@ -150,6 +150,33 @@ function stanford_vpge_fellowships_install() {
   // does not remove them from database.
   // _stanford_vpge_fellowships_remove_ds_layout_settings_from_db();
 
+  // Add some block classes by default.
+  // Apply now block.
+  $settings = array(
+    'module' => 'views',
+    'delta' => '077f80deab4f169b24400598d5857274',
+    'css_class' => 'well'
+  );
+  drupal_write_record('block_class', $settings);
+
+  // Quote block.
+  $settings['delta'] = 'd5e79122ee6ab0a12f8202567ffb3161';
+  drupal_write_record('block_class', $settings);
+
+  // Add some titles to blocks.
+  $active_theme = variable_get('theme_default', 'stanford_wilbur');
+  $settings = array(
+    'module' => 'views',
+    'delta' => '077f80deab4f169b24400598d5857274',
+    'theme' => $active_theme,
+    'title' => 'From Our Fellows',
+    'cache' => -1,
+  );
+  drupal_write_record('block', $settings);
+
+  $settings['delta'] = 'd5e79122ee6ab0a12f8202567ffb3161';
+  drupal_write_record('block', $settings);
+
 }
 
 /**

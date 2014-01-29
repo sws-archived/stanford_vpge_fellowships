@@ -643,7 +643,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p>
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p> 
 ';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -804,7 +804,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p>
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p> 
 <p> <a class="more-link" href="https://sites.stanford.edu/vpge/fellowships-funding/search">Search Fellowships and Funding Opportunities</a> </p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2083,6 +2083,9 @@ function stanford_vpge_fellowships_views_default_views() {
 
   /* Display: Apply Now Block */
   $handler = $view->new_display('block', 'Apply Now Block', 'fellowships_apply_now');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Apply Now';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['display_description'] = 'Apply Now Block';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Apply Now Block */
@@ -2091,10 +2094,45 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_s_felowship_apply_now']['field'] = 'field_s_felowship_apply_now';
   $handler->display->display_options['fields']['field_s_felowship_apply_now']['label'] = '';
   $handler->display->display_options['fields']['field_s_felowship_apply_now']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_felowship_apply_now']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'subsite';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'fellowship_funding' => 'fellowship_funding',
+  );
+  /* Filter criterion: Content: Apply Now Block (field_s_felowship_apply_now) */
+  $handler->display->display_options['filters']['field_s_felowship_apply_now_value']['id'] = 'field_s_felowship_apply_now_value';
+  $handler->display->display_options['filters']['field_s_felowship_apply_now_value']['table'] = 'field_data_field_s_felowship_apply_now';
+  $handler->display->display_options['filters']['field_s_felowship_apply_now_value']['field'] = 'field_s_felowship_apply_now_value';
+  $handler->display->display_options['filters']['field_s_felowship_apply_now_value']['operator'] = 'not empty';
   $handler->display->display_options['block_description'] = 'Apply Now';
 
   /* Display: Quote Block */
   $handler = $view->new_display('block', 'Quote Block', 'fellowships_quote_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'From our fellows';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['display_description'] = 'An optional block that shows the quote field contents.';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Quote */
@@ -2103,6 +2141,38 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_s_fellowship_quote']['field'] = 'field_s_fellowship_quote';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['label'] = '';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_fellowship_quote']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'subsite';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'fellowship_funding' => 'fellowship_funding',
+  );
+  /* Filter criterion: Content: Quote (field_s_fellowship_quote) */
+  $handler->display->display_options['filters']['field_s_fellowship_quote_value']['id'] = 'field_s_fellowship_quote_value';
+  $handler->display->display_options['filters']['field_s_fellowship_quote_value']['table'] = 'field_data_field_s_fellowship_quote';
+  $handler->display->display_options['filters']['field_s_fellowship_quote_value']['field'] = 'field_s_fellowship_quote_value';
+  $handler->display->display_options['filters']['field_s_fellowship_quote_value']['operator'] = 'not empty';
   $handler->display->display_options['block_description'] = 'Quote Block';
 
   /* Display: About Fellowship Block */

@@ -80,21 +80,15 @@ function stanford_vpge_fellowships_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_s_fellowship_image',
+        0 => 'field_s_image_info',
       ),
       's_fellowship_apply_now' => array(
         1 => 'field_s_felowship_apply_now',
       ),
-      'fellowship_about_fellowship' => array(
-        2 => 'group_fellowship_about',
-        3 => 'field_s_fellowship_about',
-      ),
     ),
     'fields' => array(
-      'field_s_fellowship_image' => 'ds_content',
+      'field_s_image_info' => 'ds_content',
       'field_s_felowship_apply_now' => 's_fellowship_apply_now',
-      'group_fellowship_about' => 'fellowship_about_fellowship',
-      'field_s_fellowship_about' => 'fellowship_about_fellowship',
     ),
     'classes' => array(),
     'wrappers' => array(

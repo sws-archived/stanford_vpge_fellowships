@@ -59,10 +59,10 @@ function stanford_vpge_fellowships_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '20',
         ),
         'redirect' => array(
-          'weight' => '4',
+          'weight' => '19',
         ),
       ),
       'display' => array(),
