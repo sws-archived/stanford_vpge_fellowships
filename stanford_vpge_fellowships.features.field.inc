@@ -2128,8 +2128,11 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'full' => array(
           'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
+          'module' => 'field_collection',
+          'settings' => array(
+            'view_mode' => 'stanford_9_col_banner',
+          ),
+          'type' => 'field_collection_view',
           'weight' => '11',
         ),
         'teaser' => array(
