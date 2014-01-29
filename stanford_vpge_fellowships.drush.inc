@@ -66,6 +66,10 @@ function drush_stanford_vpge_fellowships_move_image_from_field_collection_field(
     $fellowship->path['pathauto'] = 0;
     node_save($fellowship);
 
+    // Remove image from field collection
+    unset($fc->field_s_image_image[LANGUAGE_NONE]);
+    $fc->save();
+
     drush_log('Fixed: ' . $fellowship->title, 'ok');
   }
 
