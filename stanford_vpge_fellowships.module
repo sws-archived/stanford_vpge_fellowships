@@ -162,10 +162,23 @@ function stanford_vpge_fellowships_preprocess_html(&$variables) {
 
   $path = current_path();
   $router_path = _menu_find_router_path($path);
+  $normal_parts = drupal_get_normal_path($path);
+  $normal_parts = explode('/', $normal_parts);
+  if ($normal_parts[0] == "node") {
+    $node = node_load($normal_parts[1]);
+  }
 
   // Add CSS Class to specific view mode path.
   if ($router_path == "fellowships-funding/%/details") {
     $variables['classes_array'][] = 'fellowship-page-details';
+  }
+
+  // Add overview css class.
+  if (isset($node->type) && $node->type == "fellowship_funding") {
+    $parts = explode('/', drupal_get_path_alias($path));
+    if (strtolower(array_pop($parts)) == 'overview') {
+      $variables['classes_array'][] = 'fellowship-page-overview';
+    }
   }
 
 }
