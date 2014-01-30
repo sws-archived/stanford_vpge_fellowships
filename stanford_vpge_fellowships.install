@@ -155,7 +155,7 @@ function stanford_vpge_fellowships_install() {
   $settings = array(
     'module' => 'views',
     'delta' => '077f80deab4f169b24400598d5857274',
-    'css_class' => 'well'
+    'css_class' => 'well span4'
   );
   drupal_write_record('block_class', $settings);
 
@@ -166,6 +166,24 @@ function stanford_vpge_fellowships_install() {
   // Recent News Block.
   $settings['delta'] = "d92ec030f7c713b631663602170f377e";
   $settings['css_class'] = "header-striped";
+  drupal_write_record('block_class', $settings);
+
+  // About block.
+  $settings['delta'] = "d40340aa456f4e5d832137bce1612c17";
+  $settings['css_class'] = "well span8";
+  drupal_write_record('block_class', $settings);
+
+  // Branding block.
+  $settings['delta'] = "28c8fb77995715152f8946a1bca686be";
+  $settings['css_class'] = "fellowship-branding-block";
+  drupal_write_record('block_class', $settings);
+
+  // Menu block.
+  $settings = array(
+    'module' => 'menu_block',
+    'delta' => $delta,
+    'css_class' => 'fellowship-menu-block'
+  );
   drupal_write_record('block_class', $settings);
 
 }
