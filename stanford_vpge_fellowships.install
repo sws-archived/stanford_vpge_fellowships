@@ -163,6 +163,11 @@ function stanford_vpge_fellowships_install() {
   $settings['delta'] = 'd5e79122ee6ab0a12f8202567ffb3161';
   drupal_write_record('block_class', $settings);
 
+  // Recent News Block.
+  $settings['delta'] = "d92ec030f7c713b631663602170f377e";
+  $settings['css_class'] = "header-striped";
+  drupal_write_record('block_class', $settings);
+
 }
 
 /**
