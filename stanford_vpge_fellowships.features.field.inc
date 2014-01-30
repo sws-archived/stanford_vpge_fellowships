@@ -2130,6 +2130,10 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'module' => 'field_collection',
           'settings' => array(
+            'add' => 'Add',
+            'delete' => 'Delete',
+            'description' => TRUE,
+            'edit' => 'Edit',
             'view_mode' => 'stanford_9_col_banner',
           ),
           'type' => 'field_collection_view',
@@ -2169,6 +2173,7 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Application Type');
   t('Apply Now Block');
   t('Area of Focus');
+  t('Banner');
   t('Choose the appropriate application type.');
   t('Choose the appropriate areas of focus. ');
   t('Choose the appropriate eligibility group. ');
@@ -2183,7 +2188,7 @@ function stanford_vpge_fellowships_field_default_fields() {
   t('Enter in the date(s) for this fellowship/funding opportunity (e.g., Feb/March or Feb 28).');
   t('Enter the acronym or short title for this Fellowship/Funding content.');
   t('How to Apply');
-  t('Banner');
+  t('Image');
   t('Instructions on how to apply.');
   t('Number Awarded');
   t('Number of these fellowships awarded annually.');

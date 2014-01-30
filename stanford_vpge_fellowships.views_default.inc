@@ -643,7 +643,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p>
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p> 
 ';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -804,7 +804,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p>
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p> 
 <p> <a class="more-link" href="https://sites.stanford.edu/vpge/fellowships-funding/search">Search Fellowships and Funding Opportunities</a> </p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2031,7 +2031,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_fellowship_short_title']['field'] = 'field_fellowship_short_title';
   $handler->display->display_options['fields']['field_fellowship_short_title']['label'] = '';
   $handler->display->display_options['fields']['field_fellowship_short_title']['element_label_colon'] = FALSE;
-  /* Field: Content: Branding Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_s_fellowship_image']['id'] = 'field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['table'] = 'field_data_field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['field'] = 'field_s_fellowship_image';
@@ -2135,7 +2135,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['display_description'] = 'An optional block that shows the quote field contents.';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Quote Block */
+  /* Field: Content: Quote */
   $handler->display->display_options['fields']['field_s_fellowship_quote']['id'] = 'field_s_fellowship_quote';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['table'] = 'field_data_field_s_fellowship_quote';
   $handler->display->display_options['fields']['field_s_fellowship_quote']['field'] = 'field_s_fellowship_quote';
@@ -2168,7 +2168,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'fellowship_funding' => 'fellowship_funding',
   );
-  /* Filter criterion: Content: Quote Block (field_s_fellowship_quote) */
+  /* Filter criterion: Content: Quote (field_s_fellowship_quote) */
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['id'] = 'field_s_fellowship_quote_value';
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['table'] = 'field_data_field_s_fellowship_quote';
   $handler->display->display_options['filters']['field_s_fellowship_quote_value']['field'] = 'field_s_fellowship_quote_value';
@@ -2186,6 +2186,204 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_s_fellowship_about']['label'] = '';
   $handler->display->display_options['fields']['field_s_fellowship_about']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'About Fellowship Block';
+
+  /* Display: Recent News Fellowship Overview Block */
+  $handler = $view->new_display('block', 'Recent News Fellowship Overview Block', 'fellowship_news_overview_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['display_description'] = 'Fellowship related block of two news items';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['link_url'] = 'news';
+  $handler->display->display_options['defaults']['cache'] = FALSE;
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '21600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['hide_empty'] = TRUE;
+  /* Field: Content: All taxonomy terms */
+  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = '';
+  $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['term_node_tid']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['term_node_tid']['element_wrapper_class'] = 'descriptor-btn';
+  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['term_node_tid']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid']['separator'] = '';
+  $handler->display->display_options['fields']['term_node_tid']['limit'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
+    'news_categories' => 'news_categories',
+    'stanford_faculty_type' => 0,
+    'stanford_field_of_study' => 0,
+    'publication_type' => 0,
+    'stanford_interests' => 0,
+    'stanford_slide_category' => 0,
+    'stanford_staff_type' => 0,
+    'stanford_event_audience' => 0,
+    'stanford_event_categories' => 0,
+    'stanford_student_type' => 0,
+    'tags' => 0,
+    'areas_of_focus' => 0,
+    'event_type' => 0,
+    'eligibility' => 0,
+    'funding_type' => 0,
+    'application_type' => 0,
+    'stanford_professional_development' => 0,
+    'stanford_resource_type' => 0,
+    'target_audience' => 0,
+  );
+  /* Field: Field: Featured Image */
+  $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
+  $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_image_info']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'stanford_small_square',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_s_news_date']['id'] = 'field_s_news_date';
+  $handler->display->display_options['fields']['field_s_news_date']['table'] = 'field_data_field_s_news_date';
+  $handler->display->display_options['fields']['field_s_news_date']['field'] = 'field_s_news_date';
+  $handler->display->display_options['fields']['field_s_news_date']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_date']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_news_date']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_date']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_date']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_date']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Source */
+  $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
+  $handler->display->display_options['fields']['field_s_news_source']['table'] = 'field_data_field_s_news_source';
+  $handler->display->display_options['fields']['field_s_news_source']['field'] = 'field_s_news_source';
+  $handler->display->display_options['fields']['field_s_news_source']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_source']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_source']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_source']['alter']['text'] = '| [field_s_news_source]';
+  $handler->display->display_options['fields']['field_s_news_source']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_source']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_news_source']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_source']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_source']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_source']['click_sort_column'] = 'url';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['hide_empty'] = TRUE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node']['element_wrapper_class'] = 'edit-link';
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="postcard-left">
+        <div class="postcard-image">
+             <div class="news-image">[field_s_image_info]</div>
+        </div>
+        <div class="postcard-content">
+              <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
+             <div><h3>[title]</h3></div>
+             <div>[body]</div>
+             <div class="edit-link">[edit_node]</div>
+        </div>
+  </div> ';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Date (field_s_news_date) */
+  $handler->display->display_options['sorts']['field_s_news_date_value']['id'] = 'field_s_news_date_value';
+  $handler->display->display_options['sorts']['field_s_news_date_value']['table'] = 'field_data_field_s_news_date';
+  $handler->display->display_options['sorts']['field_s_news_date_value']['field'] = 'field_s_news_date_value';
+  $handler->display->display_options['sorts']['field_s_news_date_value']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Fellowship/Funding (field_s_news_fellowship_funding) */
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['id'] = 'field_s_news_fellowship_funding_target_id';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['table'] = 'field_data_field_s_news_fellowship_funding';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['field'] = 'field_s_news_fellowship_funding_target_id';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['default_argument_type'] = 'subsite';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_s_news_fellowship_funding_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'stanford_news_item' => 'stanford_news_item',
+  );
+  $handler->display->display_options['block_description'] = 'Recent News Fellowship Overview Block';
   $export['fellowships_funding_blocks'] = $view;
 
   return $export;
