@@ -2031,7 +2031,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['field_fellowship_short_title']['field'] = 'field_fellowship_short_title';
   $handler->display->display_options['fields']['field_fellowship_short_title']['label'] = '';
   $handler->display->display_options['fields']['field_fellowship_short_title']['element_label_colon'] = FALSE;
-  /* Field: Content: Image */
+  /* Field: Content: Branding Image */
   $handler->display->display_options['fields']['field_s_fellowship_image']['id'] = 'field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['table'] = 'field_data_field_s_fellowship_image';
   $handler->display->display_options['fields']['field_s_fellowship_image']['field'] = 'field_s_fellowship_image';
@@ -2315,6 +2315,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['hide_empty'] = TRUE;

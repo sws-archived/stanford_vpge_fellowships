@@ -111,7 +111,7 @@ function stanford_vpge_fellowships_node_insert($node) {
   menu_link_save($link);
 
   // Create a default context for the fellowship.
-  _create_active_fellowship_context($node, array());
+  // _create_active_fellowship_context($node, array());
 
 }
 
