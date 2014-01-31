@@ -478,7 +478,7 @@ function stanford_vpge_fellowships_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => 'Fields and information that appears on all pages within the fellowship section.',
+        'description' => 'Fields and information that appear on all pages within the fellowship section.',
       ),
       'formatter' => 'collapsed',
     ),
