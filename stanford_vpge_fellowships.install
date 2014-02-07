@@ -248,12 +248,12 @@ function _stanford_vpge_fellowships_add_existing_to_menu() {
 
     // Generate overview path alias.
     $path = $original_path_alias = drupal_get_path_alias('node/' . $nid);
-    $overview_path = $path . "/overview";
-    $path_opts = array(
-      'source' => 'node/' . $nid,
-      'alias' => $overview_path,
-    );
-    path_save($path_opts);
+    // $overview_path = $path . "/overview";
+    // $path_opts = array(
+    //   'source' => 'node/' . $nid,
+    //   'alias' => $overview_path,
+    // );
+    // path_save($path_opts);
 
     // Default View Mode.
     $link = array();

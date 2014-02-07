@@ -78,12 +78,12 @@ function stanford_vpge_fellowships_node_insert($node) {
   // Generate overview path alias.
   $nid = $node->nid;
   $path = $original_path_alias = drupal_get_path_alias('node/' . $nid);
-  $overview_path = $path . "/overview";
-  $path_opts = array(
-    'source' => 'node/' . $nid,
-    'alias' => $overview_path,
-  );
-  path_save($path_opts);
+  // $overview_path = $path . "/overview";
+  // $path_opts = array(
+  //   'source' => 'node/' . $nid,
+  //   'alias' => $overview_path,
+  // );
+  // path_save($path_opts);
 
   // Default View Mode.
   $link = array();
