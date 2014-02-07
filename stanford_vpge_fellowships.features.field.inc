@@ -1161,7 +1161,7 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
-            'view_mode' => 'taxonomy'
+            'view_mode' => 'taxonomy',
             'link' => 1,
           ),
           'type' => 'entityreference_entity_view',
