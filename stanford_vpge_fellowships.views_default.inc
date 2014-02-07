@@ -643,7 +643,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p> 
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no funding opportunities available based on your search filter. Click on the reset button to enter a new search filter.</p>
 ';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -804,7 +804,7 @@ function stanford_vpge_fellowships_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Fellowships and Funding - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p> 
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no fellowships available based on your search filter. Click on the reset button to enter a new search filter.</p>
 <p> <a class="more-link" href="https://sites.stanford.edu/vpge/fellowships-funding/search">Search Fellowships and Funding Opportunities</a> </p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2189,6 +2189,8 @@ function stanford_vpge_fellowships_views_default_views() {
 
   /* Display: Recent News Fellowship Overview Block */
   $handler = $view->new_display('block', 'Recent News Fellowship Overview Block', 'fellowship_news_overview_block');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'views-row-lines';
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent News';
   $handler->display->display_options['display_description'] = 'Fellowship related block of two news items';
