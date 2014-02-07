@@ -139,13 +139,13 @@ function stanford_vpge_fellowships_context_default_contexts() {
           'module' => 'views',
           'delta' => 'd40340aa456f4e5d832137bce1612c17',
           'region' => 'content_lower',
-          'weight' => '-10',
+          'weight' => '-86',
         ),
         'views-077f80deab4f169b24400598d5857274' => array(
           'module' => 'views',
           'delta' => '077f80deab4f169b24400598d5857274',
           'region' => 'content_lower',
-          'weight' => '-9',
+          'weight' => '-85',
         ),
         'views-d92ec030f7c713b631663602170f377e' => array(
           'module' => 'views',

@@ -1263,9 +1263,10 @@ function stanford_vpge_fellowships_field_default_fields() {
           'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
-            'link' => 1,
+            'links' => 0,
+            'view_mode' => 'taxonomy',
           ),
-          'type' => 'entityreference_label',
+          'type' => 'entityreference_entity_view',
           'weight' => '5',
         ),
         'full' => array(
@@ -1665,9 +1666,8 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'hidden',
           'weight' => '19',
         ),
         'teaser' => array(
@@ -1776,12 +1776,8 @@ function stanford_vpge_fellowships_field_default_fields() {
         ),
         'full' => array(
           'label' => 'hidden',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '9-col-banner',
-          ),
-          'type' => 'image',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '0',
         ),
         'teaser' => array(
@@ -2132,9 +2128,9 @@ function stanford_vpge_fellowships_field_default_fields() {
           'module' => 'field_collection',
           'settings' => array(
             'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => TRUE,
-            'edit' => 'Edit',
+            'delete' => '',
+            'description' => 0,
+            'edit' => '',
             'view_mode' => 'stanford_9_col_banner',
           ),
           'type' => 'field_collection_view',

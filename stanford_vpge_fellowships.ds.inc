@@ -26,8 +26,8 @@ function stanford_vpge_fellowships_ds_layout_settings_info() {
         3 => 'body',
         4 => 'group_fellowship_contact',
         5 => 'group_fellowship_resources',
-        6 => 'group_fellowship_partner',
-        7 => 'field_fellowship_person',
+        6 => 'field_fellowship_person',
+        7 => 'group_fellowship_partner',
         8 => 'field_fellowship_contact',
         9 => 'field_fellowship_how_to_apply',
         10 => 'field_fellowship_resource',
@@ -47,8 +47,8 @@ function stanford_vpge_fellowships_ds_layout_settings_info() {
       'body' => 'ds_content',
       'group_fellowship_contact' => 'ds_content',
       'group_fellowship_resources' => 'ds_content',
-      'group_fellowship_partner' => 'ds_content',
       'field_fellowship_person' => 'ds_content',
+      'group_fellowship_partner' => 'ds_content',
       'field_fellowship_contact' => 'ds_content',
       'field_fellowship_how_to_apply' => 'ds_content',
       'field_fellowship_resource' => 'ds_content',
@@ -79,16 +79,16 @@ function stanford_vpge_fellowships_ds_layout_settings_info() {
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
     'regions' => array(
-      'ds_content' => array(
-        0 => 'field_s_image_info',
-      ),
       's_fellowship_apply_now' => array(
-        1 => 'field_s_felowship_apply_now',
+        0 => 'field_s_felowship_apply_now',
+      ),
+      'ds_content' => array(
+        1 => 'field_s_image_info',
       ),
     ),
     'fields' => array(
-      'field_s_image_info' => 'ds_content',
       'field_s_felowship_apply_now' => 's_fellowship_apply_now',
+      'field_s_image_info' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
