@@ -11,7 +11,7 @@ function stanford_vpge_fellowships_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();
-  $context->disabled = TRUE; /* Edit this to true to make a default context disabled initially */
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'fellowship_funding_node';
   $context->description = 'Node pages for all fellowships and funding';
@@ -138,14 +138,14 @@ function stanford_vpge_fellowships_context_default_contexts() {
         'views-d40340aa456f4e5d832137bce1612c17' => array(
           'module' => 'views',
           'delta' => 'd40340aa456f4e5d832137bce1612c17',
-          'region' => 'content_upper',
-          'weight' => '-10',
+          'region' => 'content_lower',
+          'weight' => '-86',
         ),
         'views-077f80deab4f169b24400598d5857274' => array(
           'module' => 'views',
           'delta' => '077f80deab4f169b24400598d5857274',
-          'region' => 'content_upper',
-          'weight' => '-9',
+          'region' => 'content_lower',
+          'weight' => '-85',
         ),
         'views-d92ec030f7c713b631663602170f377e' => array(
           'module' => 'views',
