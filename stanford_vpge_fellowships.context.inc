@@ -126,9 +126,17 @@ function stanford_vpge_fellowships_context_default_contexts() {
         'any' => 'any',
       ),
     ),
+    'node' => array(
+      'values' => array(
+        'fellowship_funding' => 'fellowship_funding',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
     'path' => array(
       'values' => array(
-        '*/overview' => '*/overview',
+        '~*/details' => '~*/details',
       ),
     ),
   );
@@ -168,6 +176,7 @@ function stanford_vpge_fellowships_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Fellowships & Funding');
   t('The layout for the overview page of all fellowship nodes.');
+
   $export['fellowship_funding_page_overview'] = $context;
 
   return $export;
