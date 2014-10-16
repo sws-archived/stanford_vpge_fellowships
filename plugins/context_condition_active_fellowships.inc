@@ -139,6 +139,11 @@ class context_condition_active_fellowships extends context_condition {
         continue;
       }
 
+      // Skip items without the menu name.
+      if (!isset($item['menu_name']) || !isset($menu['menu_name'])) {
+        continue;
+      }
+
       // Check if we are in the right menu.
       if ($item['menu_name'] !== $menu['menu_name']) {
         continue;
